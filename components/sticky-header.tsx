@@ -6,6 +6,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Globe } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
+import { useMenu } from "@/lib/menu-context"
 import { LanguageSelector } from "./language-selector"
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -19,6 +20,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 export function StickyHeader() {
   const [isExpanded, setIsExpanded] = useState(false)
   const { t, locale, setLocale } = useLanguage()
+  const { isMainMenuOpen } = useMenu()
 
   const whatsappNumber = "905396330927"
   const whatsappUrl = `https://wa.me/${whatsappNumber}`
@@ -44,6 +46,10 @@ export function StickyHeader() {
 
   const toggleLanguage = () => {
     setLocale(locale === "en" ? "tr" : "en")
+  }
+
+  if (isMainMenuOpen) {
+    return null
   }
 
   return (

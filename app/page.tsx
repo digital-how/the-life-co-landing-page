@@ -11,10 +11,12 @@ import { FaqOutcomesSection } from "@/components/faq-outcomes-section"
 import { FinalCtaSection } from "@/components/final-cta-section"
 import { Footer } from "@/components/footer"
 import { StickyHeader } from "@/components/sticky-header"
+import { TheLifeCoHeader } from "@/components/thelifeco-header"
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <TheLifeCoHeader />
       <StickyHeader />
       <HeroSection />
       <ContextSection />

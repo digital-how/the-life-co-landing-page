@@ -4,6 +4,7 @@ import { Cormorant_Garamond, Inter, Montserrat } from "next/font/google"
 import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import { LanguageProvider } from "@/lib/language-context"
+import { MenuProvider } from "@/lib/menu-context"
 import "./globals.css"
 
 const cormorant = Cormorant_Garamond({
@@ -76,7 +77,9 @@ export default function RootLayout({
           async
           defer
         />
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          <MenuProvider>{children}</MenuProvider>
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>
