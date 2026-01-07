@@ -42,12 +42,38 @@ export function Endorsements() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
+          {endorsements.slice(0, 2).map((endorsement, index) => {
+            const Icon = endorsement.icon;
+            return (
+              <div 
+                key={index}
+                className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-8 border-l-4 border-[#01609C] shadow-md hover:shadow-lg transition-shadow md:hidden"
+              >
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-[#01609C]/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-6 h-6" style={{ color: '#01609C' }} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl mb-1" style={{ color: '#01609C' }}>
+                      {endorsement.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 font-medium">
+                      {endorsement.description}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-700 leading-relaxed italic">
+                  "{endorsement.quote}"
+                </p>
+              </div>
+            );
+          })}
           {endorsements.map((endorsement, index) => {
             const Icon = endorsement.icon;
             return (
               <div 
                 key={index}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-8 border-l-4 border-[#01609C] shadow-md hover:shadow-lg transition-shadow"
+                className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-8 border-l-4 border-[#01609C] shadow-md hover:shadow-lg transition-shadow hidden md:block"
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-12 h-12 rounded-full bg-[#01609C]/10 flex items-center justify-center flex-shrink-0">
@@ -77,21 +103,21 @@ export function Endorsements() {
           <div className="grid sm:grid-cols-3 gap-8 mt-8">
             <div>
               <div className="text-3xl font-semibold mb-2" style={{ color: '#01609C' }}>
-                15+
+                20+
               </div>
-              <p className="text-gray-700">Years of Excellence</p>
+              <p className="text-gray-700">Years of Experience</p>
             </div>
             <div>
               <div className="text-3xl font-semibold mb-2" style={{ color: '#01609C' }}>
-                50+
-              </div>
-              <p className="text-gray-700">Medical Professionals</p>
-            </div>
-            <div>
-              <div className="text-3xl font-semibold mb-2" style={{ color: '#01609C' }}>
-                5,000+
+                40,000+
               </div>
               <p className="text-gray-700">Lives Transformed</p>
+            </div>
+            <div>
+              <div className="text-3xl font-semibold mb-2" style={{ color: '#01609C' }}>
+                6
+              </div>
+              <p className="text-gray-700">World-Class Locations</p>
             </div>
           </div>
         </div>

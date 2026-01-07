@@ -31,6 +31,7 @@ export default function Version1Page() {
       <Testimonials />
       <Endorsements />
       <FAQ />
+      <PricingInquiry />
       <Footer />
     </div>
   )

@@ -123,13 +123,13 @@ export function ProgramJourney() {
           {/* Scrollable Cards Container */}
           <div className="overflow-hidden">
             <div 
-              className="flex gap-6 transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              className="flex gap-6 transition-transform duration-500 ease-in-out lg:gap-8"
+              style={{ transform: `translateX(-${currentIndex * (100 / 2.5)}%)` }}
             >
               {phases.map((phase, index) => (
                 <div 
                   key={index} 
-                  className="flex-shrink-0 w-full"
+                  className="flex-shrink-0 w-full lg:w-[calc(40%-1rem)]"
                 >
                   <div className="bg-white rounded-lg p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
                     {/* Phase Title */}

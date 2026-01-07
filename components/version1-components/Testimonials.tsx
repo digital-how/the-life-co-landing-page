@@ -50,10 +50,43 @@ export function Testimonials() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
+          {testimonials.slice(0, 2).map((testimonial, index) => (
+            <div 
+              key={index}
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100 relative md:hidden"
+            >
+              <Quote className="absolute top-6 right-6 w-12 h-12 text-[#01609C]/10" />
+              
+              <div className="flex gap-1 mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-[#01609C] text-[#01609C]" />
+                ))}
+              </div>
+              
+              <p className="text-gray-700 leading-relaxed mb-6 italic">
+                "{testimonial.quote}"
+              </p>
+              
+              <div className="pt-6 border-t border-gray-200">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <p className="font-semibold text-gray-900">{testimonial.name}</p>
+                    <p className="text-sm text-gray-600">{testimonial.location}</p>
+                    <p className="text-sm text-gray-600">{testimonial.program}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm font-semibold" style={{ color: '#01609C' }}>
+                      {testimonial.result}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100 relative"
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100 relative hidden md:block"
             >
               <Quote className="absolute top-6 right-6 w-12 h-12 text-[#01609C]/10" />
               
