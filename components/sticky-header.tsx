@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Globe } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { LanguageSelector } from "./language-selector"
 
@@ -18,9 +18,9 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 export function StickyHeader() {
   const [isExpanded, setIsExpanded] = useState(false)
-  const { t, language } = useLanguage()
+  const { t, locale, setLocale } = useLanguage()
 
-  const whatsappNumber = language === "tr" ? "902523116060" : "443308186924"
+  const whatsappNumber = "905396330927"
   const whatsappUrl = `https://wa.me/${whatsappNumber}`
 
   const navItems = [
@@ -40,6 +40,10 @@ export function StickyHeader() {
       element.scrollIntoView({ behavior: "smooth", block: "start" })
     }
     setIsExpanded(false)
+  }
+
+  const toggleLanguage = () => {
+    setLocale(locale === "en" ? "tr" : "en")
   }
 
   return (
@@ -84,15 +88,18 @@ export function StickyHeader() {
               <WhatsAppIcon className="w-5 h-5" />
             </a>
 
-            <LanguageSelector />
+            <div className="hidden md:block">
+              <LanguageSelector />
+            </div>
 
             <Button
               asChild
               size="sm"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground text-xs px-4 md:px-5 rounded-full"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground text-xs px-3 md:px-5 rounded-full whitespace-nowrap"
             >
               <a href="#contact-form" onClick={(e) => handleScroll(e, "#contact-form")}>
-                {t.header.talkToExpert}
+                <span className="hidden md:inline">{t.header.talkToExpert}</span>
+                <span className="md:hidden">{locale === "en" ? "Contact Us" : "Bize Ulaşın"}</span>
               </a>
             </Button>
           </div>
@@ -122,6 +129,14 @@ export function StickyHeader() {
                 <WhatsAppIcon className="w-5 h-5" />
                 WhatsApp
               </a>
+
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center gap-3 text-sm font-medium text-muted-foreground hover:text-primary px-4 py-3 rounded-lg hover:bg-muted/50 transition-colors"
+              >
+                <Globe className="w-5 h-5" />
+                {locale === "en" ? "Türkçe" : "English"}
+              </button>
             </div>
           </div>
         )}

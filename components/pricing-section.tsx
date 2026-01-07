@@ -10,46 +10,46 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useLanguage } from "@/lib/language-context"
 
 const countryCodes = [
-  { code: "+1", country: "US", flag: "🇺🇸" },
-  { code: "+44", country: "GB", flag: "🇬🇧" },
-  { code: "+49", country: "DE", flag: "🇩🇪" },
-  { code: "+33", country: "FR", flag: "🇫🇷" },
-  { code: "+39", country: "IT", flag: "🇮🇹" },
-  { code: "+34", country: "ES", flag: "🇪🇸" },
-  { code: "+31", country: "NL", flag: "🇳🇱" },
-  { code: "+41", country: "CH", flag: "🇨🇭" },
-  { code: "+43", country: "AT", flag: "🇦🇹" },
-  { code: "+32", country: "BE", flag: "🇧🇪" },
-  { code: "+90", country: "TR", flag: "🇹🇷" },
-  { code: "+7", country: "RU", flag: "🇷🇺" },
-  { code: "+971", country: "AE", flag: "🇦🇪" },
-  { code: "+966", country: "SA", flag: "🇸🇦" },
-  { code: "+20", country: "EG", flag: "🇪🇬" },
-  { code: "+27", country: "ZA", flag: "🇿🇦" },
-  { code: "+91", country: "IN", flag: "🇮🇳" },
-  { code: "+86", country: "CN", flag: "🇨🇳" },
-  { code: "+81", country: "JP", flag: "🇯🇵" },
-  { code: "+82", country: "KR", flag: "🇰🇷" },
-  { code: "+61", country: "AU", flag: "🇦🇺" },
-  { code: "+64", country: "NZ", flag: "🇳🇿" },
-  { code: "+55", country: "BR", flag: "🇧🇷" },
-  { code: "+52", country: "MX", flag: "🇲🇽" },
-  { code: "+47", country: "NO", flag: "🇳🇴" },
-  { code: "+46", country: "SE", flag: "🇸🇪" },
-  { code: "+45", country: "DK", flag: "🇩🇰" },
-  { code: "+358", country: "FI", flag: "🇫🇮" },
-  { code: "+48", country: "PL", flag: "🇵🇱" },
-  { code: "+351", country: "PT", flag: "🇵🇹" },
-  { code: "+30", country: "GR", flag: "🇬🇷" },
-  { code: "+353", country: "IE", flag: "🇮🇪" },
-  { code: "+972", country: "IL", flag: "🇮🇱" },
-  { code: "+65", country: "SG", flag: "🇸🇬" },
-  { code: "+852", country: "HK", flag: "🇭🇰" },
-  { code: "+60", country: "MY", flag: "🇲🇾" },
-  { code: "+66", country: "TH", flag: "🇹🇭" },
-  { code: "+63", country: "PH", flag: "🇵🇭" },
-  { code: "+62", country: "ID", flag: "🇮🇩" },
-  { code: "+84", country: "VN", flag: "🇻🇳" },
+  { code: "+1", country: "US" },
+  { code: "+44", country: "GB" },
+  { code: "+49", country: "DE" },
+  { code: "+33", country: "FR" },
+  { code: "+39", country: "IT" },
+  { code: "+34", country: "ES" },
+  { code: "+31", country: "NL" },
+  { code: "+41", country: "CH" },
+  { code: "+43", country: "AT" },
+  { code: "+32", country: "BE" },
+  { code: "+90", country: "TR" },
+  { code: "+7", country: "RU" },
+  { code: "+971", country: "AE" },
+  { code: "+966", country: "SA" },
+  { code: "+20", country: "EG" },
+  { code: "+27", country: "ZA" },
+  { code: "+91", country: "IN" },
+  { code: "+86", country: "CN" },
+  { code: "+81", country: "JP" },
+  { code: "+82", country: "KR" },
+  { code: "+61", country: "AU" },
+  { code: "+64", country: "NZ" },
+  { code: "+55", country: "BR" },
+  { code: "+52", country: "MX" },
+  { code: "+47", country: "NO" },
+  { code: "+46", country: "SE" },
+  { code: "+45", country: "DK" },
+  { code: "+358", country: "FI" },
+  { code: "+48", country: "PL" },
+  { code: "+351", country: "PT" },
+  { code: "+30", country: "GR" },
+  { code: "+353", country: "IE" },
+  { code: "+972", country: "IL" },
+  { code: "+65", country: "SG" },
+  { code: "+852", country: "HK" },
+  { code: "+60", country: "MY" },
+  { code: "+66", country: "TH" },
+  { code: "+63", country: "PH" },
+  { code: "+62", country: "ID" },
+  { code: "+84", country: "VN" },
 ]
 
 const countryToDialCode: Record<string, string> = {
@@ -102,7 +102,7 @@ export function PricingSection() {
     firstName: "",
     lastName: "",
     email: "",
-    countryCode: "+90",
+    countryCode: "+44", // Default to UK instead of Turkey
     phone: "",
     message: "",
   })
@@ -112,12 +112,28 @@ export function PricingSection() {
   useEffect(() => {
     const detectCountry = async () => {
       try {
-        const response = await fetch("https://ipapi.co/json/")
-        const data = await response.json()
-        if (data.country_code && countryToDialCode[data.country_code]) {
+        let countryCode = null
+
+        // Try ip-api.com first (free, no API key needed)
+        try {
+          const response = await fetch("http://ip-api.com/json/?fields=countryCode")
+          const data = await response.json()
+          if (data.countryCode) {
+            countryCode = data.countryCode
+          }
+        } catch {
+          // Fallback to ipapi.co
+          const response = await fetch("https://ipapi.co/json/")
+          const data = await response.json()
+          if (data.country_code) {
+            countryCode = data.country_code
+          }
+        }
+
+        if (countryCode && countryToDialCode[countryCode]) {
           setFormData((prev) => ({
             ...prev,
-            countryCode: countryToDialCode[data.country_code],
+            countryCode: countryToDialCode[countryCode],
           }))
         }
       } catch (error) {
@@ -216,19 +232,19 @@ export function PricingSection() {
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  className="bg-gradient-to-br from-card to-accent/5 p-6 md:p-8 rounded-lg border border-accent/10 shadow-lg shadow-accent/5"
+                  className="bg-gradient-to-br from-card to-accent/5 p-5 md:p-8 rounded-lg border border-accent/10 shadow-lg shadow-accent/5"
                 >
-                  <h3 className="text-xl md:text-2xl font-light text-foreground mb-2 font-serif">
+                  <h3 className="text-lg md:text-2xl font-light text-foreground mb-2 font-serif">
                     {t.pricing.formTitle}
                   </h3>
-                  <p className="text-xs md:text-sm font-[family-name:var(--font-montserrat)] text-muted-foreground mb-5 md:mb-6">
+                  <p className="text-[11px] md:text-sm font-[family-name:var(--font-montserrat)] text-muted-foreground mb-4 md:mb-6">
                     {t.pricing.formSubtitle}
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mb-4 md:mb-5">
-                    <div className="space-y-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5 mb-3 md:mb-5">
+                    <div className="space-y-1.5 md:space-y-2">
                       <Label
                         htmlFor="firstName"
-                        className="text-xs md:text-sm font-[family-name:var(--font-montserrat)] text-foreground"
+                        className="text-[11px] md:text-sm font-[family-name:var(--font-montserrat)] text-foreground"
                       >
                         {t.pricing.firstName}
                       </Label>
@@ -238,13 +254,13 @@ export function PricingSection() {
                         required
                         value={formData.firstName}
                         onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                        className="bg-background border-border/50 focus:border-accent text-sm"
+                        className="bg-background border-border/50 focus:border-accent text-xs md:text-sm h-9 md:h-10"
                       />
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-1.5 md:space-y-2">
                       <Label
                         htmlFor="lastName"
-                        className="text-xs md:text-sm font-[family-name:var(--font-montserrat)] text-foreground"
+                        className="text-[11px] md:text-sm font-[family-name:var(--font-montserrat)] text-foreground"
                       >
                         {t.pricing.lastName}
                       </Label>
@@ -254,14 +270,14 @@ export function PricingSection() {
                         required
                         value={formData.lastName}
                         onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                        className="bg-background border-border/50 focus:border-accent text-sm"
+                        className="bg-background border-border/50 focus:border-accent text-xs md:text-sm h-9 md:h-10"
                       />
                     </div>
                   </div>
-                  <div className="space-y-2 mb-4 md:mb-5">
+                  <div className="space-y-1.5 md:space-y-2 mb-3 md:mb-5">
                     <Label
                       htmlFor="email"
-                      className="text-xs md:text-sm font-[family-name:var(--font-montserrat)] text-foreground"
+                      className="text-[11px] md:text-sm font-[family-name:var(--font-montserrat)] text-foreground"
                     >
                       {t.pricing.email}
                     </Label>
@@ -271,13 +287,13 @@ export function PricingSection() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="bg-background border-border/50 focus:border-accent text-sm"
+                      className="bg-background border-border/50 focus:border-accent text-xs md:text-sm h-9 md:h-10"
                     />
                   </div>
-                  <div className="space-y-2 mb-4 md:mb-5">
+                  <div className="space-y-1.5 md:space-y-2 mb-3 md:mb-5">
                     <Label
                       htmlFor="phone"
-                      className="text-xs md:text-sm font-[family-name:var(--font-montserrat)] text-foreground"
+                      className="text-[11px] md:text-sm font-[family-name:var(--font-montserrat)] text-foreground"
                     >
                       {t.pricing.phone}
                     </Label>
@@ -286,14 +302,14 @@ export function PricingSection() {
                         value={formData.countryCode}
                         onValueChange={(value) => setFormData({ ...formData, countryCode: value })}
                       >
-                        <SelectTrigger className="w-[90px] md:w-[100px] bg-background border-border/50 focus:border-accent text-sm">
+                        <SelectTrigger className="w-[70px] md:w-[85px] bg-background border-border/50 focus:border-accent text-xs md:text-sm h-9 md:h-10">
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent className="max-h-[300px]">
                           {countryCodes.map((country) => (
-                            <SelectItem key={country.country} value={country.code}>
-                              <span className="flex items-center gap-2">
-                                <span>{country.flag}</span>
+                            <SelectItem key={country.country} value={country.code} className="text-xs md:text-sm">
+                              <span className="flex items-center gap-1">
+                                <span className="text-muted-foreground">{country.country}</span>
                                 <span>{country.code}</span>
                               </span>
                             </SelectItem>
@@ -305,15 +321,15 @@ export function PricingSection() {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="flex-1 bg-background border-border/50 focus:border-accent text-sm"
+                        className="flex-1 bg-background border-border/50 focus:border-accent text-xs md:text-sm h-9 md:h-10"
                         placeholder={t.pricing.phonePlaceholder}
                       />
                     </div>
                   </div>
-                  <div className="space-y-2 mb-5 md:mb-6">
+                  <div className="space-y-1.5 md:space-y-2 mb-4 md:mb-6">
                     <Label
                       htmlFor="message"
-                      className="text-xs md:text-sm font-[family-name:var(--font-montserrat)] text-foreground"
+                      className="text-[11px] md:text-sm font-[family-name:var(--font-montserrat)] text-foreground"
                     >
                       {t.pricing.message}
                     </Label>
@@ -322,7 +338,7 @@ export function PricingSection() {
                       rows={3}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="bg-background border-border/50 focus:border-accent resize-none text-sm"
+                      className="bg-background border-border/50 focus:border-accent resize-none text-xs md:text-sm"
                       placeholder={t.pricing.messagePlaceholder}
                     />
                   </div>
@@ -330,11 +346,11 @@ export function PricingSection() {
                     type="submit"
                     size="lg"
                     disabled={isSubmitting}
-                    className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-[family-name:var(--font-montserrat)] text-sm md:text-base shadow-lg shadow-accent/20"
+                    className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-[family-name:var(--font-montserrat)] text-xs md:text-base h-10 md:h-11 shadow-lg shadow-accent/20"
                   >
                     {isSubmitting ? t.pricing.submitting : t.pricing.submit}
                   </Button>
-                  <p className="text-xs font-[family-name:var(--font-montserrat)] text-muted-foreground text-center mt-4">
+                  <p className="text-[10px] md:text-xs font-[family-name:var(--font-montserrat)] text-muted-foreground text-center mt-3 md:mt-4">
                     {t.pricing.callUs} {t.pricing.phoneNumber}
                   </p>
                 </form>

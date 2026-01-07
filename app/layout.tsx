@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Cormorant_Garamond, Inter, Montserrat } from "next/font/google"
+import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import { LanguageProvider } from "@/lib/language-context"
 import "./globals.css"
@@ -54,6 +55,27 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${cormorant.variable} ${inter.variable} ${montserrat.variable} font-sans antialiased`}>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-952156165"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-952156165');
+          `}
+        </Script>
+        {/* HubSpot Embed Code */}
+        <Script
+          id="hs-script-loader"
+          src="//js.hs-scripts.com/2208163.js"
+          strategy="afterInteractive"
+          async
+          defer
+        />
         <LanguageProvider>{children}</LanguageProvider>
         <Analytics />
       </body>
