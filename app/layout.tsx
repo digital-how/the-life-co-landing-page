@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Cormorant_Garamond, Inter, Montserrat } from "next/font/google"
-import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import { LanguageProvider } from "@/lib/language-context"
 import { MenuProvider } from "@/lib/menu-context"
@@ -32,16 +31,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon.png",
-        sizes: "192x192",
-        type: "image/png",
+        url: "/icon-light-32x32.png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/icon-dark-32x32.png",
+        media: "(prefers-color-scheme: dark)",
       },
       {
         url: "/icon.svg",
         type: "image/svg+xml",
       },
     ],
-    apple: "/favicon.png",
+    apple: "/apple-icon.png",
   },
 }
 
@@ -53,27 +55,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${cormorant.variable} ${inter.variable} ${montserrat.variable} font-sans antialiased`}>
-        {/* Google tag (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-952156165"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-952156165');
-          `}
-        </Script>
-        {/* HubSpot Embed Code */}
-        <Script
-          id="hs-script-loader"
-          src="//js.hs-scripts.com/2208163.js"
-          strategy="afterInteractive"
-          async
-          defer
-        />
         <LanguageProvider>
           <MenuProvider>{children}</MenuProvider>
         </LanguageProvider>

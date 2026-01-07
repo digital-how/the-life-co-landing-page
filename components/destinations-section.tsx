@@ -9,7 +9,7 @@ const destinations = [
   {
     name: "Bodrum, Turkey",
     nameTr: "Bodrum, Türkiye",
-    image: "/luxury-wellness-resort-bodrum-turkey-mediterranean.jpg",
+    image: "https://www.thelifeco.com/wp-content/uploads/2023/11/Bodrum_general_photo.jpg",
     featured: true,
   },
   {
@@ -70,11 +70,11 @@ export function DestinationsSection() {
             </div>
 
             {/* Right side - Image grid */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3 md:gap-4">
               {/* Top section: Bodrum + Antalya/Uludag stack */}
-              <div className="grid grid-cols-2 lg:grid-cols-[1.2fr_1fr] gap-3 md:gap-4 h-auto lg:h-[500px]">
-                {/* Bodrum - full height on left */}
-                <div className="relative aspect-[3/4] lg:aspect-auto rounded-xl md:rounded-2xl overflow-hidden group lg:h-full">
+              <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-3 md:gap-4 lg:h-[500px]">
+                {/* Bodrum - full width on mobile with taller aspect */}
+                <div className="relative aspect-[4/3] md:aspect-[3/4] lg:aspect-auto rounded-xl md:rounded-2xl overflow-hidden group lg:h-full">
                   <Image
                     src={destinations[0].image || "/placeholder.svg"}
                     alt={locale === "tr" ? destinations[0].nameTr : destinations[0].name}
@@ -87,7 +87,7 @@ export function DestinationsSection() {
                   </h3>
                 </div>
                 {/* Right stack: Antalya + Uludag */}
-                <div className="flex flex-col gap-3 md:gap-4 h-full">
+                <div className="grid grid-cols-2 md:flex md:flex-col gap-3 md:gap-4 md:h-full">
                   {/* Antalya */}
                   <div className="relative aspect-[4/3] lg:aspect-auto rounded-xl md:rounded-2xl overflow-hidden group lg:flex-1">
                     <Image

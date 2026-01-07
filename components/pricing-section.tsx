@@ -1,13 +1,14 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useLanguage } from "@/lib/language-context"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const countryCodes = [
   { code: "+1", country: "US" },
@@ -97,24 +98,25 @@ const countryToDialCode: Record<string, string> = {
 }
 
 export function PricingSection() {
-  const { t } = useLanguage()
+  const { locale, t } = useLanguage()
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    countryCode: "+44", // Default to UK instead of Turkey
+    countryCode: "+44",
     phone: "",
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const carouselRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     const detectCountry = async () => {
       try {
         let countryCode = null
-
-        // Try ip-api.com first (free, no API key needed)
         try {
           const response = await fetch("http://ip-api.com/json/?fields=countryCode")
           const data = await response.json()
@@ -122,14 +124,12 @@ export function PricingSection() {
             countryCode = data.countryCode
           }
         } catch {
-          // Fallback to ipapi.co
           const response = await fetch("https://ipapi.co/json/")
           const data = await response.json()
           if (data.country_code) {
             countryCode = data.country_code
           }
         }
-
         if (countryCode && countryToDialCode[countryCode]) {
           setFormData((prev) => ({
             ...prev,
@@ -151,35 +151,129 @@ export function PricingSection() {
     setIsSubmitted(true)
   }
 
+  const scrollIncluded = (direction: "left" | "right") => {
+    if (carouselRef.current) {
+      const totalItems = t.pricing.categories.length
+      let newIndex: number
+
+      if (direction === "left") {
+        newIndex = currentSlide === 0 ? totalItems - 1 : currentSlide - 1
+      } else {
+        newIndex = currentSlide === totalItems - 1 ? 0 : currentSlide + 1
+      }
+
+      setCurrentSlide(newIndex)
+      const isMobile = window.innerWidth < 768
+      const cardWidth = isMobile ? carouselRef.current.offsetWidth * 0.85 : carouselRef.current.offsetWidth / 2 + 12
+      carouselRef.current.scrollTo({
+        left: newIndex * cardWidth,
+        behavior: "smooth",
+      })
+    }
+  }
+
+  const handleScroll = () => {
+    if (carouselRef.current) {
+      const isMobile = window.innerWidth < 768
+      const cardWidth = isMobile ? carouselRef.current.offsetWidth * 0.85 : carouselRef.current.offsetWidth / 2 + 12
+      const newIndex = Math.round(carouselRef.current.scrollLeft / cardWidth)
+      setCurrentSlide(newIndex)
+    }
+  }
+
   return (
     <section id="pricing" className="py-16 md:py-20 bg-secondary">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="md:container md:mx-auto md:px-6">
         <div className="max-w-6xl mx-auto">
           {/* What's Included - Full Width */}
-          <div className="mb-10 md:mb-12">
+          <div className="mb-10 md:mb-12 px-4 md:px-0">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-foreground mb-6 md:mb-8 text-center font-serif">
               {t.pricing.whatsIncluded}
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {t.pricing.categories.map((category) => (
-                <div key={category.title} className="bg-card p-5 md:p-6 rounded-lg border border-border/50">
-                  <h3 className="text-base md:text-lg font-medium text-foreground mb-3 md:mb-4">{category.title}</h3>
-                  <ul className="space-y-2 md:space-y-3 text-xs md:text-sm font-[family-name:var(--font-montserrat)] text-muted-foreground">
-                    {category.items.map((item, idx) => (
-                      <li key={idx}>{item}</li>
-                    ))}
-                    {category.note && <li className="text-xs italic text-muted-foreground/70">{category.note}</li>}
-                  </ul>
+            <div className="relative max-w-5xl mx-auto">
+              {/* Desktop arrows on sides */}
+              <button
+                onClick={() => scrollIncluded("left")}
+                className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 z-10 p-3 rounded-full bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all"
+              >
+                <ChevronLeft className="w-6 h-6 text-foreground" />
+              </button>
+
+              <button
+                onClick={() => scrollIncluded("right")}
+                className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 z-10 p-3 rounded-full bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all"
+              >
+                <ChevronRight className="w-6 h-6 text-foreground" />
+              </button>
+
+              <div
+                ref={carouselRef}
+                onScroll={handleScroll}
+                className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-3 md:gap-6 pb-4 -mx-4 px-4 md:mx-0 md:px-0"
+                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              >
+                {t.pricing.categories.map((category, index) => (
+                  <div
+                    key={category.title}
+                    className="flex-shrink-0 w-[85%] md:w-[calc(50%-12px)] snap-center bg-card p-5 md:p-6 rounded-lg border border-border/50"
+                  >
+                    <h3 className="text-base md:text-lg font-medium text-foreground mb-3 md:mb-4">{category.title}</h3>
+                    <ul className="space-y-2 md:space-y-3 text-xs md:text-sm font-[family-name:var(--font-montserrat)] text-muted-foreground">
+                      {category.items.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
+                      {category.note && <li className="text-xs italic text-muted-foreground/70">{category.note}</li>}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+
+              {/* Mobile navigation with arrows and dots */}
+              <div className="flex md:hidden items-center justify-center gap-4 mt-2">
+                <button
+                  onClick={() => scrollIncluded("left")}
+                  className="p-2 rounded-full bg-card border border-border/50 transition-opacity"
+                >
+                  <ChevronLeft className="w-5 h-5 text-foreground" />
+                </button>
+
+                <div className="flex gap-2">
+                  {t.pricing.categories.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setCurrentSlide(index)
+                        if (carouselRef.current) {
+                          const cardWidth = carouselRef.current.offsetWidth * 0.85
+                          carouselRef.current.scrollTo({
+                            left: index * cardWidth,
+                            behavior: "smooth",
+                          })
+                        }
+                      }}
+                      className={`w-2 h-2 rounded-full transition-colors ${
+                        currentSlide === index ? "bg-accent" : "bg-border"
+                      }`}
+                      aria-label={`Go to slide ${index + 1}`}
+                    />
+                  ))}
                 </div>
-              ))}
+
+                <button
+                  onClick={() => scrollIncluded("right")}
+                  className="p-2 rounded-full bg-card border border-border/50 transition-opacity"
+                >
+                  <ChevronRight className="w-5 h-5 text-foreground" />
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Pricing and Form - Two Column */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start px-0 md:px-0">
             {/* Left side - Pricing info */}
-            <div className="text-center lg:text-left">
+            <div className="text-center lg:text-left px-4 md:px-0">
               <p className="text-base md:text-lg font-[family-name:var(--font-montserrat)] text-muted-foreground mb-3">
                 {t.pricing.programLabel}
               </p>
@@ -209,9 +303,9 @@ export function PricingSection() {
             </div>
 
             {/* Right side - Inquiry form */}
-            <div id="contact-form">
+            <div id="contact-form" className="w-full">
               {isSubmitted ? (
-                <div className="bg-card p-8 md:p-10 rounded-lg border border-border/50 text-center">
+                <div className="bg-card p-8 md:p-10 rounded-none md:rounded-lg border-y md:border border-border/50 text-center mx-0">
                   <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-5 md:mb-6">
                     <svg
                       className="w-7 h-7 md:w-8 md:h-8 text-accent"
@@ -232,7 +326,7 @@ export function PricingSection() {
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  className="bg-gradient-to-br from-card to-accent/5 p-5 md:p-8 rounded-lg border border-accent/10 shadow-lg shadow-accent/5"
+                  className="bg-gradient-to-br from-card to-accent/5 p-5 md:p-8 rounded-none md:rounded-lg border-y md:border border-accent/10 shadow-lg shadow-accent/5"
                 >
                   <h3 className="text-lg md:text-2xl font-light text-foreground mb-2 font-serif">
                     {t.pricing.formTitle}

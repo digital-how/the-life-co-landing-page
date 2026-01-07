@@ -7,35 +7,35 @@ export function TestimonialsSection() {
   const { t } = useLanguage()
 
   return (
-    <section className="py-16 md:py-20 bg-card">
-      <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground mb-4 text-center">
+    <section className="py-12 md:py-16 lg:py-20 bg-card">
+      <div className="container mx-auto px-4 md:px-6">
+        <h2 className="text-2xl md:text-3xl lg:text-5xl font-light text-foreground mb-3 md:mb-4 text-center">
           {t.testimonials.title}
         </h2>
-        <div className="flex items-center justify-center gap-1 mb-12">
+        <div className="flex items-center justify-center gap-1 mb-8 md:mb-12">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+            <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-amber-400 text-amber-400" />
           ))}
-          <span className="ml-2 text-sm font-[family-name:var(--font-inter)] text-muted-foreground">
+          <span className="ml-2 text-xs md:text-sm font-[family-name:var(--font-inter)] text-muted-foreground">
             {t.testimonials.rating}
           </span>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-8 max-w-4xl mx-auto">
           {t.testimonials.items.map((testimonial, index) => (
-            <div key={index} className="bg-background p-8 md:p-10 rounded-lg border border-border/50">
-              <Quote className="w-8 h-8 text-primary/30 mb-6" />
-              <p className="text-lg md:text-xl font-light text-foreground leading-relaxed mb-6 italic">
+            <div key={index} className="bg-background p-5 md:p-8 lg:p-10 rounded-lg border border-border/50">
+              <Quote className="w-6 h-6 md:w-8 md:h-8 text-primary/30 mb-4 md:mb-6" />
+              <p className="text-base md:text-lg lg:text-xl font-light text-foreground leading-relaxed mb-4 md:mb-6 italic">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
-              <div className="inline-block bg-primary/10 text-primary text-xs font-[family-name:var(--font-inter)] font-medium px-3 py-1 rounded-full mb-4">
+              <div className="inline-block bg-primary/10 text-primary text-[10px] md:text-xs font-[family-name:var(--font-inter)] font-medium px-2 md:px-3 py-1 rounded-full mb-3 md:mb-4">
                 {testimonial.result}
               </div>
               <div>
-                <p className="text-sm font-[family-name:var(--font-inter)] font-medium text-foreground">
+                <p className="text-xs md:text-sm font-[family-name:var(--font-inter)] font-medium text-foreground">
                   {testimonial.author}
                 </p>
-                <p className="text-sm font-[family-name:var(--font-inter)] text-muted-foreground">
+                <p className="text-xs md:text-sm font-[family-name:var(--font-inter)] text-muted-foreground">
                   {testimonial.location}
                 </p>
               </div>

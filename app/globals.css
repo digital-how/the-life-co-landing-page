@@ -3,7 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Updated theme to match TheLifeCo website colors */
+/* Updated theme to match TheLifeCo brand colors with blue/teal tones */
 :root {
   --background: oklch(0.98 0.002 90);
   --foreground: oklch(0.2 0.02 50);
@@ -11,8 +11,8 @@
   --card-foreground: oklch(0.2 0.02 50);
   --popover: oklch(1.0 0 0);
   --popover-foreground: oklch(0.2 0.02 50);
-  /* TheLifeCo forest green */
-  --primary: oklch(0.42 0.1 155);
+  /* TheLifeCo teal/blue - shifted from green (155) to teal-blue (195) */
+  --primary: oklch(0.38 0.12 195);
   --primary-foreground: oklch(1.0 0 0);
   --secondary: oklch(0.96 0.005 90);
   --secondary-foreground: oklch(0.25 0.02 50);
@@ -25,9 +25,10 @@
   --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: oklch(0.9 0.005 90);
   --input: oklch(0.94 0.005 90);
-  --ring: oklch(0.42 0.1 155);
+  /* Ring color also updated to teal-blue */
+  --ring: oklch(0.38 0.12 195);
   --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-2: oklch(0.5 0.12 195);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
@@ -40,6 +41,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Added TheLifeCo specific brand colors */
+  --thelifeco-teal: oklch(0.38 0.12 195);
+  --thelifeco-teal-light: oklch(0.5 0.1 195);
+  --thelifeco-teal-dark: oklch(0.3 0.12 195);
+  --thelifeco-orange: oklch(0.7 0.15 55);
+  --thelifeco-gold: oklch(0.65 0.12 75);
 }
 
 .dark {
@@ -118,6 +126,13 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Added TheLifeCo brand colors to theme */
+  --color-thelifeco-teal: var(--thelifeco-teal);
+  --color-thelifeco-teal-light: var(--thelifeco-teal-light);
+  --color-thelifeco-teal-dark: var(--thelifeco-teal-dark);
+  --color-thelifeco-orange: var(--thelifeco-orange);
+  --color-thelifeco-gold: var(--thelifeco-gold);
 }
 
 @layer base {
