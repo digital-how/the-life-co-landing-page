@@ -12,8 +12,7 @@ export function TrustSection() {
           <img
             src="/images/image.png"
             alt={t.trust.altText}
-            className="h-auto object-cover object-bottom min-w-[800px] md:min-w-0 md:w-full"
-            style={{ marginTop: "-60px", clipPath: "inset(60px 0 0 0)" }}
+            className="h-auto w-full object-contain min-w-[800px] md:min-w-0"
           />
         </div>
       </div>
