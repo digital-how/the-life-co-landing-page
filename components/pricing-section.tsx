@@ -113,6 +113,17 @@ export function PricingSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
 
+  const getCardWidth = () => {
+    if (carouselRef.current) {
+      const firstCard = carouselRef.current.querySelector("[data-card]") as HTMLElement
+      if (firstCard) {
+        const gap = window.innerWidth < 768 ? 12 : 24
+        return firstCard.offsetWidth + gap
+      }
+    }
+    return 0
+  }
+
   useEffect(() => {
     const detectCountry = async () => {
       try {
@@ -153,6 +164,9 @@ export function PricingSection() {
 
   const scrollIncluded = (direction: "left" | "right") => {
     if (carouselRef.current) {
+      const cardWidth = getCardWidth()
+      if (cardWidth === 0) return
+
       const totalItems = t.pricing.categories.length
       let newIndex: number
 
@@ -163,8 +177,6 @@ export function PricingSection() {
       }
 
       setCurrentSlide(newIndex)
-      const isMobile = window.innerWidth < 768
-      const cardWidth = isMobile ? carouselRef.current.offsetWidth * 0.85 : carouselRef.current.offsetWidth / 2 + 12
       carouselRef.current.scrollTo({
         left: newIndex * cardWidth,
         behavior: "smooth",
@@ -174,10 +186,24 @@ export function PricingSection() {
 
   const handleScroll = () => {
     if (carouselRef.current) {
-      const isMobile = window.innerWidth < 768
-      const cardWidth = isMobile ? carouselRef.current.offsetWidth * 0.85 : carouselRef.current.offsetWidth / 2 + 12
-      const newIndex = Math.round(carouselRef.current.scrollLeft / cardWidth)
-      setCurrentSlide(newIndex)
+      const cardWidth = getCardWidth()
+      if (cardWidth > 0) {
+        const newIndex = Math.round(carouselRef.current.scrollLeft / cardWidth)
+        setCurrentSlide(newIndex)
+      }
+    }
+  }
+
+  const scrollToIndex = (index: number) => {
+    if (carouselRef.current) {
+      const cardWidth = getCardWidth()
+      if (cardWidth > 0) {
+        setCurrentSlide(index)
+        carouselRef.current.scrollTo({
+          left: index * cardWidth,
+          behavior: "smooth",
+        })
+      }
     }
   }
 
@@ -192,7 +218,7 @@ export function PricingSection() {
             </h2>
 
             <div className="relative max-w-5xl mx-auto">
-              {/* Desktop arrows on sides */}
+              {/* Desktop arrows */}
               <button
                 onClick={() => scrollIncluded("left")}
                 className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 z-10 p-3 rounded-full bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all"
@@ -207,33 +233,41 @@ export function PricingSection() {
                 <ChevronRight className="w-6 h-6 text-foreground" />
               </button>
 
-              <div
-                ref={carouselRef}
-                onScroll={handleScroll}
-                className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-3 md:gap-6 pb-4 -mx-4 px-4 md:mx-0 md:px-0"
-                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-              >
-                {t.pricing.categories.map((category, index) => (
-                  <div
-                    key={category.title}
-                    className="flex-shrink-0 w-[85%] md:w-[calc(50%-12px)] snap-center bg-card p-5 md:p-6 rounded-lg border border-border/50"
-                  >
-                    <h3 className="text-base md:text-lg font-medium text-foreground mb-3 md:mb-4">{category.title}</h3>
-                    <ul className="space-y-2 md:space-y-3 text-xs md:text-sm font-[family-name:var(--font-montserrat)] text-muted-foreground">
-                      {category.items.map((item, idx) => (
-                        <li key={idx}>{item}</li>
-                      ))}
-                      {category.note && <li className="text-xs italic text-muted-foreground/70">{category.note}</li>}
-                    </ul>
-                  </div>
-                ))}
+              {/* Carousel container */}
+              <div className="overflow-hidden">
+                <div
+                  ref={carouselRef}
+                  onScroll={handleScroll}
+                  className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-3 md:gap-6 pb-4"
+                  style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+                >
+                  {t.pricing.categories.map((category, index) => (
+                    <div
+                      key={category.title}
+                      data-card
+                      className="flex-shrink-0 w-[85%] md:w-[calc(50%-12px)] snap-start bg-card p-5 md:p-8 rounded-lg border border-border/50 first:ml-[7.5%] md:first:ml-0"
+                    >
+                      <h3 className="text-base md:text-xl font-medium text-foreground mb-3 md:mb-4">
+                        {category.title}
+                      </h3>
+                      <ul className="space-y-2 md:space-y-3 text-xs md:text-base font-[family-name:var(--font-montserrat)] text-muted-foreground">
+                        {category.items.map((item, idx) => (
+                          <li key={idx}>{item}</li>
+                        ))}
+                        {category.note && (
+                          <li className="text-xs md:text-sm italic text-muted-foreground/70">{category.note}</li>
+                        )}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              {/* Mobile navigation with arrows and dots */}
-              <div className="flex md:hidden items-center justify-center gap-4 mt-2">
+              {/* Navigation dots */}
+              <div className="flex items-center justify-center gap-4 mt-4">
                 <button
                   onClick={() => scrollIncluded("left")}
-                  className="p-2 rounded-full bg-card border border-border/50 transition-opacity"
+                  className="md:hidden p-2 rounded-full bg-card border border-border/50 transition-opacity"
                 >
                   <ChevronLeft className="w-5 h-5 text-foreground" />
                 </button>
@@ -242,16 +276,7 @@ export function PricingSection() {
                   {t.pricing.categories.map((_, index) => (
                     <button
                       key={index}
-                      onClick={() => {
-                        setCurrentSlide(index)
-                        if (carouselRef.current) {
-                          const cardWidth = carouselRef.current.offsetWidth * 0.85
-                          carouselRef.current.scrollTo({
-                            left: index * cardWidth,
-                            behavior: "smooth",
-                          })
-                        }
-                      }}
+                      onClick={() => scrollToIndex(index)}
                       className={`w-2 h-2 rounded-full transition-colors ${
                         currentSlide === index ? "bg-accent" : "bg-border"
                       }`}
@@ -262,7 +287,7 @@ export function PricingSection() {
 
                 <button
                   onClick={() => scrollIncluded("right")}
-                  className="p-2 rounded-full bg-card border border-border/50 transition-opacity"
+                  className="md:hidden p-2 rounded-full bg-card border border-border/50 transition-opacity"
                 >
                   <ChevronRight className="w-5 h-5 text-foreground" />
                 </button>

@@ -9,8 +9,22 @@ export function PillarsSection() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
+  const getCardWidth = () => {
+    if (scrollRef.current) {
+      const firstCard = scrollRef.current.querySelector("[data-card]") as HTMLElement
+      if (firstCard) {
+        const gap = window.innerWidth < 768 ? 12 : 24
+        return firstCard.offsetWidth + gap
+      }
+    }
+    return 0
+  }
+
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
+      const cardWidth = getCardWidth()
+      if (cardWidth === 0) return
+
       const totalItems = t.pillars.items.length
       let newIndex: number
 
@@ -21,8 +35,6 @@ export function PillarsSection() {
       }
 
       setActiveIndex(newIndex)
-      const isMobile = window.innerWidth < 768
-      const cardWidth = isMobile ? scrollRef.current.offsetWidth * 0.88 : scrollRef.current.offsetWidth / 2 + 12
       scrollRef.current.scrollTo({
         left: newIndex * cardWidth,
         behavior: "smooth",
@@ -32,10 +44,24 @@ export function PillarsSection() {
 
   const handleScroll = () => {
     if (scrollRef.current) {
-      const isMobile = window.innerWidth < 768
-      const cardWidth = isMobile ? scrollRef.current.offsetWidth * 0.88 : scrollRef.current.offsetWidth / 2 + 12
-      const newIndex = Math.round(scrollRef.current.scrollLeft / cardWidth)
-      setActiveIndex(newIndex)
+      const cardWidth = getCardWidth()
+      if (cardWidth > 0) {
+        const newIndex = Math.round(scrollRef.current.scrollLeft / cardWidth)
+        setActiveIndex(newIndex)
+      }
+    }
+  }
+
+  const scrollToIndex = (index: number) => {
+    if (scrollRef.current) {
+      const cardWidth = getCardWidth()
+      if (cardWidth > 0) {
+        setActiveIndex(index)
+        scrollRef.current.scrollTo({
+          left: index * cardWidth,
+          behavior: "smooth",
+        })
+      }
     }
   }
 
@@ -49,7 +75,8 @@ export function PillarsSection() {
           </p>
         </div>
 
-        <div className="relative max-w-6xl mx-auto">
+        <div className="relative max-w-5xl mx-auto">
+          {/* Desktop arrows */}
           <button
             onClick={() => scroll("left")}
             className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 z-10 p-3 rounded-full bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all"
@@ -64,36 +91,41 @@ export function PillarsSection() {
             <ChevronRight className="w-6 h-6 text-foreground" />
           </button>
 
-          <div
-            ref={scrollRef}
-            onScroll={handleScroll}
-            className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-3 md:gap-6 pb-4 -mx-4 px-4 md:mx-0 md:px-0"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
-            {t.pillars.items.map((pillar, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-[88%] md:w-[calc(50%-12px)] snap-center bg-card p-7 md:p-8 rounded-lg border border-border/50 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
-              >
-                <div className="mb-4 md:mb-5">
-                  <span className="text-sm md:text-base font-[family-name:var(--font-inter)] text-primary font-medium">
-                    {t.pillars.layer} {String(index + 1).padStart(2, "0")}
-                  </span>
+          {/* Carousel container */}
+          <div className="overflow-hidden">
+            <div
+              ref={scrollRef}
+              onScroll={handleScroll}
+              className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-3 md:gap-6 pb-4"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              {t.pillars.items.map((pillar, index) => (
+                <div
+                  key={index}
+                  data-card
+                  className="flex-shrink-0 w-[88%] md:w-[calc(50%-12px)] snap-start bg-card p-7 md:p-10 rounded-lg border border-border/50 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 first:ml-[6%] md:first:ml-0"
+                >
+                  <div className="mb-4 md:mb-5">
+                    <span className="text-sm md:text-base font-[family-name:var(--font-inter)] text-primary font-medium">
+                      {t.pillars.layer} {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-medium text-foreground mb-3 md:mb-4 leading-snug">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-base md:text-lg lg:text-xl font-[family-name:var(--font-inter)] text-muted-foreground leading-relaxed">
+                    {pillar.description}
+                  </p>
                 </div>
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-medium text-foreground mb-3 md:mb-4 leading-snug">
-                  {pillar.title}
-                </h3>
-                <p className="text-base md:text-lg lg:text-xl font-[family-name:var(--font-inter)] text-muted-foreground leading-relaxed">
-                  {pillar.description}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          <div className="flex md:hidden items-center justify-center gap-4 mt-4">
+          {/* Navigation dots */}
+          <div className="flex items-center justify-center gap-4 mt-6">
             <button
               onClick={() => scroll("left")}
-              className="p-2 rounded-full bg-card border border-border/50 transition-opacity"
+              className="md:hidden p-2 rounded-full bg-card border border-border/50 transition-opacity"
             >
               <ChevronLeft className="w-5 h-5 text-foreground" />
             </button>
@@ -102,16 +134,7 @@ export function PillarsSection() {
               {t.pillars.items.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => {
-                    setActiveIndex(index)
-                    if (scrollRef.current) {
-                      const cardWidth = scrollRef.current.offsetWidth * 0.88
-                      scrollRef.current.scrollTo({
-                        left: index * cardWidth,
-                        behavior: "smooth",
-                      })
-                    }
-                  }}
+                  onClick={() => scrollToIndex(index)}
                   className={`w-2 h-2 rounded-full transition-colors ${
                     index === activeIndex ? "bg-primary" : "bg-border"
                   }`}
@@ -121,7 +144,7 @@ export function PillarsSection() {
 
             <button
               onClick={() => scroll("right")}
-              className="p-2 rounded-full bg-card border border-border/50 transition-opacity"
+              className="md:hidden p-2 rounded-full bg-card border border-border/50 transition-opacity"
             >
               <ChevronRight className="w-5 h-5 text-foreground" />
             </button>
