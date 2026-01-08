@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { HeroSection } from "@/components/hero-section"
 import { ContextSection } from "@/components/context-section"
 import { ApproachSection } from "@/components/approach-section"
@@ -12,6 +13,12 @@ import { FinalCtaSection } from "@/components/final-cta-section"
 import { Footer } from "@/components/footer"
 import { StickyHeader } from "@/components/sticky-header"
 import { TheLifeCoHeader } from "@/components/thelifeco-header"
+
+export const metadata: Metadata = {
+  title: "Kilo Verme Programı",
+  description:
+    "TheLifeCo'nun altı katmanlı İyileşme Yolculuğu ile yönlendirilen, beden ve zihin için sürdürülebilir değişimi desteklemek üzere tasarlanmış kişiselleştirilmiş bir kilo verme programı.",
+}
 
 export default function TurkishPage() {
   return (
