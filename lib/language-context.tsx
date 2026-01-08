@@ -1,6 +1,7 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import { createContext, useContext, useEffect, type ReactNode } from "react"
+import { usePathname, useRouter } from "next/navigation"
 import { type Locale, getTranslations } from "./translations"
 
 type LanguageContextType = {
@@ -11,53 +12,32 @@ type LanguageContextType = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
-const countryToLocale: Record<string, Locale> = {
-  TR: "tr",
-  // Add more country mappings as needed
-}
-
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en")
-  const [isInitialized, setIsInitialized] = useState(false)
-
-  useEffect(() => {
-    // Check localStorage first
-    const savedLocale = localStorage.getItem("locale") as Locale | null
-    if (savedLocale && (savedLocale === "en" || savedLocale === "tr")) {
-      setLocaleState(savedLocale)
-      setIsInitialized(true)
-      return
+  const pathname = usePathname()
+  const router = useRouter()
+  
+  // Extract locale from pathname (/en or /tr)
+  const getLocaleFromPath = (): Locale => {
+    if (pathname?.startsWith("/tr")) {
+      return "tr"
     }
-
-    // Auto-detect by IP
-    const detectLanguage = async () => {
-      try {
-        const response = await fetch("https://ipapi.co/json/")
-        const data = await response.json()
-        const detectedLocale = countryToLocale[data.country_code] || "en"
-        setLocaleState(detectedLocale)
-        localStorage.setItem("locale", detectedLocale)
-      } catch {
-        // Default to English if detection fails
-        setLocaleState("en")
-      } finally {
-        setIsInitialized(true)
-      }
+    if (pathname?.startsWith("/en")) {
+      return "en"
     }
+    // Default to English if path doesn't match
+    return "en"
+  }
 
-    detectLanguage()
-  }, [])
+  const locale = getLocaleFromPath()
 
   const setLocale = (newLocale: Locale) => {
-    setLocaleState(newLocale)
-    localStorage.setItem("locale", newLocale)
+    // Get current path without locale prefix
+    const currentPath = pathname?.replace(/^\/(en|tr)/, "") || ""
+    // Navigate to new locale path
+    router.push(`/${newLocale}${currentPath}`)
   }
 
   const t = getTranslations(locale)
-
-  if (!isInitialized) {
-    return null // Or a loading spinner
-  }
 
   return <LanguageContext.Provider value={{ locale, setLocale, t }}>{children}</LanguageContext.Provider>
 }

@@ -4,10 +4,11 @@ import { useLanguage } from "@/lib/language-context"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Globe } from "lucide-react"
+import Link from "next/link"
 import type { Locale } from "@/lib/translations"
 
 export function LanguageSelector() {
-  const { locale, setLocale, t } = useLanguage()
+  const { locale, t } = useLanguage()
 
   const languages: { code: Locale; label: string }[] = [
     { code: "en", label: t.language.en },
@@ -24,12 +25,13 @@ export function LanguageSelector() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {languages.map((lang) => (
-          <DropdownMenuItem
-            key={lang.code}
-            onClick={() => setLocale(lang.code)}
-            className={locale === lang.code ? "bg-primary/10" : ""}
-          >
-            {lang.label}
+          <DropdownMenuItem key={lang.code} asChild>
+            <Link
+              href={`/${lang.code}`}
+              className={locale === lang.code ? "bg-primary/10" : ""}
+            >
+              {lang.label}
+            </Link>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

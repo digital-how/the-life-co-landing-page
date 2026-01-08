@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Menu, X, ChevronDown } from "lucide-react"
+import Link from "next/link"
 import { useLanguage } from "@/lib/language-context"
 import { useMenu } from "@/lib/menu-context"
 import Image from "next/image"
@@ -9,7 +10,7 @@ import Image from "next/image"
 export function TheLifeCoHeader() {
   const [isScrolled, setIsScrolled] = useState(false)
   const { isMainMenuOpen, setIsMainMenuOpen } = useMenu()
-  const { locale, setLocale } = useLanguage()
+  const { locale } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,10 +19,6 @@ export function TheLifeCoHeader() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
-  const toggleLanguage = () => {
-    setLocale(locale === "en" ? "tr" : "en")
-  }
 
   const baseUrl = "https://www.thelifeco.com"
   const links = {
@@ -144,15 +141,15 @@ export function TheLifeCoHeader() {
           {/* Right side - Language + CTA */}
           <div className="flex items-center gap-4">
             {/* Language toggle */}
-            <button
-              onClick={toggleLanguage}
+            <Link
+              href={locale === "en" ? "/tr" : "/en"}
               className="hidden md:flex items-center gap-1 text-sm font-medium transition-colors"
               style={{ color: textColor }}
               onMouseEnter={(e) => (e.currentTarget.style.color = hoverColor)}
               onMouseLeave={(e) => (e.currentTarget.style.color = textColor)}
             >
               {locale === "en" ? "TR" : "EN"}
-            </button>
+            </Link>
 
             {/* CTA Button - Updated to warm orange */}
             <a
@@ -261,13 +258,13 @@ export function TheLifeCoHeader() {
               </a>
 
               <div className="border-t border-gray-100 mt-2 pt-2">
-                <button
-                  onClick={toggleLanguage}
-                  className="w-full px-4 py-3 text-left font-medium hover:bg-gray-50 rounded-lg transition-colors"
+                <Link
+                  href={locale === "en" ? "/tr" : "/en"}
+                  className="block w-full px-4 py-3 text-left font-medium hover:bg-gray-50 rounded-lg transition-colors"
                   style={{ color: textColor }}
                 >
                   {locale === "en" ? "Türkçe" : "English"}
-                </button>
+                </Link>
               </div>
 
               <div className="mt-4 px-4">
