@@ -13,6 +13,10 @@ const nextConfig = {
       },
     ],
   },
+  // Optimize CSS loading
+  experimental: {
+    optimizeCss: true,
+  },
 }
 
 export default nextConfig

@@ -129,7 +129,7 @@ export function PricingSection() {
       try {
         let countryCode = null
         try {
-          const response = await fetch("http://ip-api.com/json/?fields=countryCode")
+          const response = await fetch("https://ip-api.com/json/?fields=countryCode")
           const data = await response.json()
           if (data.countryCode) {
             countryCode = data.countryCode
