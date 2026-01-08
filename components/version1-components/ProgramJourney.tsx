@@ -48,7 +48,7 @@ export function ProgramJourney() {
     },
     {
       number: "4",
-      title: "Days 8–14 — Transformation Phase",
+      title: "Days 8–14+ — Transformation Phase",
       subtitle: "Strengthening results (for longer stays)",
       items: [
         "Continued fat loss support",

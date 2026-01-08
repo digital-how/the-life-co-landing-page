@@ -28,7 +28,7 @@ export function Hero() {
           </span>
         </h1>
         <p className="text-lg md:text-xl mb-4 max-w-3xl mx-auto opacity-95">
-          A personalised weight loss wellness retreat with flexible start dates and program durations ranging from 4 days to extended stays of 100+ days.
+          A personalised weight loss wellness retreat with flexible start dates and program durations ranging from 4 days to extended stays.
         </p>
         <p className="text-base md:text-lg mb-8 max-w-2xl mx-auto opacity-90 italic">
           Your journey begins when you're ready — and continues for as long as your body requires.

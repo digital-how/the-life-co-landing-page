@@ -30,9 +30,9 @@ export function HealingJourney() {
     },
     {
       number: "05",
-      title: "Understanding That Extends Beyond the Retreat",
+      title: "A Partnership That Lasts Beyond the Retreat",
       subtitle: "Practices & Learnings to Take Home",
-      description: "Education is an essential part of the journey. You leave with practical guidance and a clearer understanding of your body — supporting long-term balance in weight, blood sugar, and everyday habits once you return home.",
+      description: "Education is an essential part of the journey. You leave with practical guidance and a personal toolbox of skills and practices you can apply in daily life — supported by an ongoing partnership that continues beyond your stay, enabling long-term balance in weight, blood sugar, and everyday habits once you return home.",
       closing: null
     },
     {

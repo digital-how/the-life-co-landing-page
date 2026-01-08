@@ -11,10 +11,11 @@ export function WhatsIncluded() {
       ]
     },
     {
-      title: "Wellness Services",
+      title: "Wellness Services and Mental Support for Weight Management",
       description: "Daily expert guidance and core wellness therapies that support sustainable change.",
       items: [
         "Daily wellness coaching with dietitians and psychologists",
+        "Coping with Emotional Eating Session (x2)",
         "Body composition analysis (2×)",
         "Infrared sauna and steam room access (daily)",
         "Colon cleansing (self-administered, daily)",

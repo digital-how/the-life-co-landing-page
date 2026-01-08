@@ -43,10 +43,6 @@ export function FAQ() {
       question: "Do you offer virtual/remote programs?",
       answer: "Yes! We offer both residential programs at our wellness centers and virtual programs that you can complete from home. Virtual programs include video consultations, meal plans and recipes, supplement protocols, guided wellness practices, and daily support from our team."
     },
-    {
-      question: "What if I don't see results?",
-      answer: "While results vary by individual, we're confident in our approach. If you follow the program as prescribed and don't see significant improvements in your wellbeing, we'll work with you to understand why and adjust your plan. Your success is our priority, and we're committed to supporting you throughout your journey."
-    }
   ];
 
   return (

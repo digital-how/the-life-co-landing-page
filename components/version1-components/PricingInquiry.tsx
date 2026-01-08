@@ -32,13 +32,14 @@ export function PricingInquiry() {
             {/* Left Side - Program Info */}
             <div className="bg-gray-50 p-8 md:p-12 flex flex-col justify-center">
               <h3 className="text-2xl md:text-3xl mb-6" style={{ color: '#01609C' }}>
-                7-Day Weight Loss Program
+                Weight Loss Program
               </h3>
               
               <div className="mb-6">
                 <p className="text-gray-600 text-sm mb-2">Starting from</p>
-                <p className="text-4xl md:text-5xl text-gray-800 mb-2">€2,200</p>
-                <p className="text-gray-600 italic text-sm">all inclusive</p>
+                <p className="text-4xl md:text-5xl text-gray-800 mb-2">€400</p>
+                <p className="text-gray-600 italic text-sm mb-2">per night, all inclusive</p>
+                <p className="text-gray-700 text-sm">Minimum stay 4 days, recommended 7+ days</p>
               </div>
 
               <div className="space-y-4 mb-6">

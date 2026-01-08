@@ -24,7 +24,7 @@ export function CTASection() {
             </Button>
           </div>
           <p className="text-xs text-gray-500 mt-4">
-            Flexible programs from 4 to 100+ days • Start when you're ready
+            Flexible programs from 4 days to extended stays • Start when you're ready
           </p>
         </div>
       </div>

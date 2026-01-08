@@ -25,8 +25,8 @@ export function Results() {
     },
     {
       icon: Droplet,
-      title: "Lose from Fat",
-      description: "Target actual fat loss, not just water weight. Our approach ensures you're losing what matters most.",
+      title: "Lose from Fat & Toxins",
+      description: "Target actual fat loss and reduced toxic load (not just water weight will GO).",
       stat: "85%",
       statLabel: "Fat loss vs water weight"
     }
