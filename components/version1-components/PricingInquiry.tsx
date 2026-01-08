@@ -15,6 +15,15 @@ export function PricingInquiry() {
     e.preventDefault();
     // Handle form submission
     console.log('Form submitted:', formData);
+    
+    // Track conversion in Google Analytics
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'form_submission', {
+        event_category: 'engagement',
+        event_label: 'inquiry_form',
+        value: 1
+      })
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

@@ -160,6 +160,15 @@ export function PricingSection() {
     await new Promise((resolve) => setTimeout(resolve, 1500))
     setIsSubmitting(false)
     setIsSubmitted(true)
+    
+    // Track conversion in Google Analytics
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'form_submission', {
+        event_category: 'engagement',
+        event_label: 'inquiry_form',
+        value: 1
+      })
+    }
   }
 
   const scrollIncluded = (direction: "left" | "right") => {
