@@ -147,7 +147,7 @@ export function PricingFormSection() {
     
     // Track conversion in Google Analytics
     if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'form_submission', {
+      window.gtag('event', 'submit_lead_form', {
         event_category: 'engagement',
         event_label: 'inquiry_form',
         value: 1
