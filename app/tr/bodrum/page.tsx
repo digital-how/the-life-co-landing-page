@@ -2,16 +2,16 @@
 
 import { HeroTR } from "@/components/version1-components/Hero-tr"
 import { ResultsTR } from "@/components/version1-components/Results-tr"
-import { WhyItMatters } from "@/components/version1-components/WhyItMatters"
-import { WhatsIncluded } from "@/components/version1-components/WhatsIncluded"
-import { GuestExperience } from "@/components/version1-components/GuestExperience"
-import { ProgramJourney } from "@/components/version1-components/ProgramJourney"
-import { HealingJourney } from "@/components/version1-components/HealingJourney"
+import { WhyItMattersTR } from "@/components/version1-components/WhyItMatters-tr"
+import { WhatsIncludedTR } from "@/components/version1-components/WhatsIncluded-tr"
+import { GuestExperienceTR } from "@/components/version1-components/GuestExperience-tr"
+import { ProgramJourneyTR } from "@/components/version1-components/ProgramJourney-tr"
+import { HealingJourneyTR } from "@/components/version1-components/HealingJourney-tr"
 import { TestimonialsTR } from "@/components/version1-components/Testimonials-tr"
 import { VideoTestimonial } from "@/components/version1-components/VideoTestimonial"
 import { Endorsements } from "@/components/version1-components/Endorsements"
-import { FAQ } from "@/components/version1-components/FAQ"
-import { Footer } from "@/components/version1-components/Footer"
+import { FAQTR } from "@/components/version1-components/FAQ-tr"
+import { FooterTR } from "@/components/version1-components/Footer-tr"
 import { PhotoStrip } from "@/components/version1-components/PhotoStrip"
 import { PricingInquiryTR } from "@/components/version1-components/PricingInquiry-tr"
 
@@ -20,19 +20,19 @@ export default function BodrumPageTR() {
     <div className="min-h-screen">
       <HeroTR />
       <ResultsTR />
-      <WhatsIncluded />
+      <WhatsIncludedTR />
       <PricingInquiryTR />
       <VideoTestimonial />
-      <WhyItMatters />
-      <ProgramJourney />
-      <HealingJourney />
-      <GuestExperience />
+      <WhyItMattersTR />
+      <ProgramJourneyTR />
+      <HealingJourneyTR />
+      <GuestExperienceTR />
       <PhotoStrip />
       <TestimonialsTR />
       <Endorsements />
-      <FAQ />
+      <FAQTR />
       <PricingInquiryTR />
-      <Footer />
+      <FooterTR />
     </div>
   )
 }
