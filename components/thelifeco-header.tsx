@@ -33,8 +33,8 @@ export function TheLifeCoHeader() {
     home: locale === "en" ? `${baseUrl}/en/` : `${baseUrl}/tr/`,
   }
 
-  const textColor = "#1a5f5f"
-  const hoverColor = "#008080" // Updated to TheLifeCo teal-blue
+  const textColor = isScrolled ? "#1a5f5f" : "white"
+  const hoverColor = isScrolled ? "#008080" : "rgba(255, 255, 255, 0.8)" // Updated to TheLifeCo teal-blue
   const ctaBgColor = "#008080" // Updated to TheLifeCo teal-blue
   const ctaHoverBgColor = "#006666" // Updated to a darker teal-blue for hover effect
 
@@ -165,7 +165,9 @@ export function TheLifeCoHeader() {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMainMenuOpen(!isMainMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              className={`lg:hidden p-2 rounded-lg transition-colors ${
+                isScrolled ? "hover:bg-gray-100" : "hover:bg-white/20"
+              }`}
               aria-label="Toggle menu"
             >
               {isMainMenuOpen ? (
