@@ -86,27 +86,27 @@ export function TheLifeCoHeader() {
                   <a
                     href={links.detoxPrograms}
                     className="block px-4 py-2 text-sm hover:bg-gray-50"
-                    style={{ color: menuTextColor }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = menuHoverColor)}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = menuTextColor)}
+                    style={{ color: "#1a5f5f" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "#008080")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "#1a5f5f")}
                   >
                     {locale === "en" ? "Detox Programs" : "Detoks Programları"}
                   </a>
                   <a
                     href={links.weightLoss}
                     className="block px-4 py-2 text-sm hover:bg-gray-50"
-                    style={{ color: menuTextColor }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = menuHoverColor)}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = menuTextColor)}
+                    style={{ color: "#1a5f5f" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "#008080")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "#1a5f5f")}
                   >
                     {locale === "en" ? "Weight Loss" : "Zayıflama"}
                   </a>
                   <a
                     href={links.diabetesRecovery}
                     className="block px-4 py-2 text-sm hover:bg-gray-50"
-                    style={{ color: menuTextColor }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = menuHoverColor)}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = menuTextColor)}
+                    style={{ color: "#1a5f5f" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "#008080")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "#1a5f5f")}
                   >
                     {locale === "en" ? "Diabetes Recovery" : "Diyabet Programı"}
                   </a>
