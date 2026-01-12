@@ -3,12 +3,20 @@ import { Star, Quote } from "lucide-react";
 export function Testimonials() {
   const testimonials = [
     {
-      name: "Lebanese Actress",
-      location: "",
-      program: "Visited Bodrum in 2024",
+      name: "Cecil",
+      location: "UK",
+      program: "",
       rating: 5,
-      quote: "It really taught me so much about myself. I felt that I was doing it in a very safe environment — with a nutritionist following up with you, with people who knew what they were doing, in a very medical setting, and with programs that are suitable to help you detox.",
-      result: "Self-discovery, safe environment"
+      quote: "I came to TheLifeCo Bodrum for one week, hoping for a change. By the end, my blood sugar levels were back in the normal range, and I'd lost 4 kilos. The program meals were incredible; fresh, filling salads that kept me satisfied all day. Next week, I'll have my online consultation with my dietitian here to keep the progress going. This has truly been life-changing.",
+      result: "Lost 4 kilos, blood sugar normalized"
+    },
+    {
+      name: "Sasa Mikevic",
+      location: "",
+      program: "",
+      rating: 5,
+      quote: "I would like to express my heartfelt gratitude to all of you, especially your incredible staff, for giving me the opportunity to transform my life. My stay at LifeCo Bodrum felt like a once-in-a-lifetime experience, but looking back, I am certain it has already become a lifelong habit—and, above all, a beautiful friendship. It has been a long time since I last felt this surge of energy radiating from my core.",
+      result: "Life transformation, renewed energy"
     }
   ];
 

@@ -8,7 +8,7 @@ import { GuestExperienceAR } from "@/components/version1-components/GuestExperie
 import { ProgramJourneyAR } from "@/components/version1-components/ProgramJourney-ar"
 import { HealingJourneyAR } from "@/components/version1-components/HealingJourney-ar"
 import { TestimonialsAR } from "@/components/version1-components/Testimonials-ar"
-import { VideoTestimonial } from "@/components/version1-components/VideoTestimonial"
+import { VideoTestimonialAR } from "@/components/version1-components/VideoTestimonial-ar"
 import { EndorsementsAR } from "@/components/version1-components/Endorsements-ar"
 import { FAQAR } from "@/components/version1-components/FAQ-ar"
 import { FooterAR } from "@/components/version1-components/Footer-ar"
@@ -22,7 +22,7 @@ export default function BodrumPageAR() {
       <ResultsAR />
       <WhatsIncludedAR />
       <PricingInquiryAR />
-      <VideoTestimonial />
+      <VideoTestimonialAR />
       <WhyItMattersAR />
       <ProgramJourneyAR />
       <HealingJourneyAR />
