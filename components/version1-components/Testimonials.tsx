@@ -25,7 +25,7 @@ export function Testimonials() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl mb-4" style={{ color: '#01609C' }}>
-            Real Stories, Real Results
+            Real experiences from those who visited Bodrum
           </h2>
           <div className="w-20 h-1 bg-[#01609C] mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -75,7 +75,7 @@ export function Testimonials() {
         
         <div className="text-center mt-12">
           <p className="text-gray-600">
-            Join over <span className="font-semibold" style={{ color: '#01609C' }}>5,000+</span> guests who have transformed their lives
+            Join over <span className="font-semibold" style={{ color: '#01609C' }}>40,000+</span> guests who have transformed their lives
           </p>
         </div>
       </div>
