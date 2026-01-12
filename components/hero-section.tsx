@@ -11,15 +11,9 @@ export function HeroSection() {
     <section className="relative h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20">
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/serene-luxury-wellness-retreat-nature-spa-calm-pea-mobile.jpg')`,
-          }}
-        />
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block"
-          style={{
-            backgroundImage: `url('/serene-luxury-wellness-retreat-nature-spa-calm-pea.jpg')`,
+            backgroundImage: `url('/bodrum_center_wellbeing_thelifeco.jpg')`,
           }}
         />
       </div>
