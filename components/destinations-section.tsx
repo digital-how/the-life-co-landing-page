@@ -9,33 +9,33 @@ const destinations = [
   {
     name: "Bodrum, Turkey",
     nameTr: "Bodrum, Türkiye",
-    image: "https://www.thelifeco.com/wp-content/uploads/2023/11/Bodrum_general_photo.jpg",
+    image: "/Bodrum_general_photo.jpg",
+    link: "https://www.thelifeco.com/en/centers/the-lifeco-bodrum-wellness-retreat/",
     featured: true,
   },
   {
     name: "Antalya, Turkey",
     nameTr: "Antalya, Türkiye",
-    image: "/luxury-beachfront-resort-antalya-turkey-palm-trees.jpg",
+    image: "/TheLifeCo-Antalya_Drone_Photo_2_2020_edit-1024x852.jpg",
+    link: "https://www.thelifeco.com/en/centers/the-lifeco-antalya-wellbeing-center/",
   },
   {
-    name: "Swissôtel Uludağ, Turkey",
-    nameTr: "Swissôtel Uludağ, Türkiye",
-    image: "/swissotel-uludag-turkey-mountain-resort.jpg",
-  },
-  {
-    name: "Rodney Bay, St Lucia",
-    nameTr: "Rodney Bay, St Lucia",
-    image: "/tropical-hillside-wellness-resort-st-lucia-caribbe.jpg",
+    name: "St Lucia",
+    nameTr: "St Lucia",
+    image: "/Theilfeco-st-lucia-1024x509.png",
+    link: "https://www.thelifeco.com/en/centers/thelifeco-st-lucia/",
   },
   {
     name: "Sharm El Sheikh, Egypt",
     nameTr: "Şarm El Şeyh, Mısır",
-    image: "/beach-resort-sharm-el-sheikh-egypt-sunset-umbrella.jpg",
+    image: "/sharm.png",
+    link: "https://www.thelifeco.com/en/thelifeco-sharm-el-sheikh/",
   },
   {
     name: "Phuket, Thailand",
     nameTr: "Phuket, Tayland",
-    image: "/serene-lake-resort-phuket-thailand-tropical-palm-t.jpg",
+    image: "/phuket.jpg",
+    link: "https://www.thelifeco.com/en/centers/the-lifeco-phuket/",
   },
 ]
 
@@ -50,7 +50,7 @@ export function DestinationsSection() {
             {/* Left side - Text content */}
             <div className="flex flex-col justify-center text-center lg:text-left">
               <p className="text-sm font-[family-name:var(--font-inter)] uppercase tracking-widest text-muted-foreground mb-4">
-                {locale === "tr" ? "6 FARKLI LOKASYON" : "6 DESTINATIONS"}
+                {locale === "tr" ? "5 FARKLI LOKASYON" : "5 DESTINATIONS"}
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground mb-6 leading-tight">
                 {t.destinations.title}
@@ -71,10 +71,10 @@ export function DestinationsSection() {
 
             {/* Right side - Image grid */}
             <div className="flex flex-col gap-3 md:gap-4">
-              {/* Top section: Bodrum + Antalya/Uludag stack */}
+              {/* Top section: Bodrum + Antalya stack */}
               <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-3 md:gap-4 lg:h-[500px]">
                 {/* Bodrum - full width on mobile with taller aspect */}
-                <div className="relative aspect-[4/3] md:aspect-[3/4] lg:aspect-auto rounded-xl md:rounded-2xl overflow-hidden group lg:h-full">
+                <Link href={destinations[0].link} target="_blank" rel="noopener noreferrer" className="relative aspect-[4/3] md:aspect-[3/4] lg:aspect-auto rounded-xl md:rounded-2xl overflow-hidden group lg:h-full cursor-pointer">
                   <Image
                     src={destinations[0].image || "/placeholder.svg"}
                     alt={locale === "tr" ? destinations[0].nameTr : destinations[0].name}
@@ -85,41 +85,37 @@ export function DestinationsSection() {
                   <h3 className="absolute bottom-3 left-3 md:bottom-4 md:left-4 text-base md:text-xl lg:text-2xl font-medium text-white">
                     {locale === "tr" ? destinations[0].nameTr : destinations[0].name}
                   </h3>
-                </div>
-                {/* Right stack: Antalya + Uludag */}
-                <div className="grid grid-cols-2 md:flex md:flex-col gap-3 md:gap-4 md:h-full">
-                  {/* Antalya */}
-                  <div className="relative aspect-[4/3] lg:aspect-auto rounded-xl md:rounded-2xl overflow-hidden group lg:flex-1">
-                    <Image
-                      src={destinations[1].image || "/placeholder.svg"}
-                      alt={locale === "tr" ? destinations[1].nameTr : destinations[1].name}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <h3 className="absolute bottom-3 left-3 md:bottom-4 md:left-4 text-sm md:text-lg lg:text-xl font-medium text-white">
-                      {locale === "tr" ? destinations[1].nameTr : destinations[1].name}
-                    </h3>
-                  </div>
-                  {/* Uludag */}
-                  <div className="relative aspect-[4/3] lg:aspect-auto rounded-xl md:rounded-2xl overflow-hidden group lg:flex-1">
-                    <Image
-                      src={destinations[2].image || "/placeholder.svg"}
-                      alt={locale === "tr" ? destinations[2].nameTr : destinations[2].name}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <h3 className="absolute bottom-3 left-3 md:bottom-4 md:left-4 text-sm md:text-lg lg:text-xl font-medium text-white">
-                      {locale === "tr" ? destinations[2].nameTr : destinations[2].name}
-                    </h3>
-                  </div>
-                </div>
+                </Link>
+                {/* Antalya */}
+                <Link href={destinations[1].link} target="_blank" rel="noopener noreferrer" className="relative aspect-[4/3] lg:aspect-auto rounded-xl md:rounded-2xl overflow-hidden group lg:h-full cursor-pointer">
+                  <Image
+                    src={destinations[1].image || "/placeholder.svg"}
+                    alt={locale === "tr" ? destinations[1].nameTr : destinations[1].name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <h3 className="absolute bottom-3 left-3 md:bottom-4 md:left-4 text-sm md:text-lg lg:text-xl font-medium text-white">
+                    {locale === "tr" ? destinations[1].nameTr : destinations[1].name}
+                  </h3>
+                </Link>
               </div>
 
-              {/* Bottom row: 3 equal cards - 2 cols on mobile, 3 on desktop */}
+              {/* Bottom row: 3 equal cards - St Lucia, Sharm El Sheikh, Phuket */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-                <div className="relative aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden group">
+                <Link href={destinations[2].link} target="_blank" rel="noopener noreferrer" className="relative aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden group cursor-pointer">
+                  <Image
+                    src={destinations[2].image || "/placeholder.svg"}
+                    alt={locale === "tr" ? destinations[2].nameTr : destinations[2].name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <h3 className="absolute bottom-3 left-3 md:bottom-4 md:left-4 text-sm md:text-base lg:text-lg font-medium text-white">
+                    {locale === "tr" ? destinations[2].nameTr : destinations[2].name}
+                  </h3>
+                </Link>
+                <Link href={destinations[3].link} target="_blank" rel="noopener noreferrer" className="relative aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden group cursor-pointer">
                   <Image
                     src={destinations[3].image || "/placeholder.svg"}
                     alt={locale === "tr" ? destinations[3].nameTr : destinations[3].name}
@@ -130,8 +126,8 @@ export function DestinationsSection() {
                   <h3 className="absolute bottom-3 left-3 md:bottom-4 md:left-4 text-sm md:text-base lg:text-lg font-medium text-white">
                     {locale === "tr" ? destinations[3].nameTr : destinations[3].name}
                   </h3>
-                </div>
-                <div className="relative aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden group">
+                </Link>
+                <Link href={destinations[4].link} target="_blank" rel="noopener noreferrer" className="relative aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden group col-span-2 md:col-span-1 cursor-pointer">
                   <Image
                     src={destinations[4].image || "/placeholder.svg"}
                     alt={locale === "tr" ? destinations[4].nameTr : destinations[4].name}
@@ -142,19 +138,7 @@ export function DestinationsSection() {
                   <h3 className="absolute bottom-3 left-3 md:bottom-4 md:left-4 text-sm md:text-base lg:text-lg font-medium text-white">
                     {locale === "tr" ? destinations[4].nameTr : destinations[4].name}
                   </h3>
-                </div>
-                <div className="relative aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden group col-span-2 md:col-span-1">
-                  <Image
-                    src={destinations[5].image || "/placeholder.svg"}
-                    alt={locale === "tr" ? destinations[5].nameTr : destinations[5].name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <h3 className="absolute bottom-3 left-3 md:bottom-4 md:left-4 text-sm md:text-base lg:text-lg font-medium text-white">
-                    {locale === "tr" ? destinations[5].nameTr : destinations[5].name}
-                  </h3>
-                </div>
+                </Link>
               </div>
             </div>
           </div>
