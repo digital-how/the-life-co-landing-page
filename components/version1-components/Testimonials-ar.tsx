@@ -3,20 +3,12 @@ import { Star, Quote } from "lucide-react";
 export function TestimonialsAR() {
   const testimonials = [
     {
-      name: "Cecil",
-      location: "UK",
-      program: "",
-      rating: 5,
-      quote: "I came to TheLifeCo Bodrum for one week, hoping for a change. By the end, my blood sugar levels were back in the normal range, and I'd lost 4 kilos. The program meals were incredible; fresh, filling salads that kept me satisfied all day. Next week, I'll have my online consultation with my dietitian here to keep the progress going. This has truly been life-changing.",
-      result: "فقدان 4 كيلوغرامات، عودة سكر الدم إلى طبيعته"
-    },
-    {
-      name: "Sasa Mikevic",
+      name: "ممثلة لبنانية",
       location: "",
-      program: "",
+      program: "زارت بودروم في 2024",
       rating: 5,
-      quote: "I would like to express my heartfelt gratitude to all of you, especially your incredible staff, for giving me the opportunity to transform my life. My stay at LifeCo Bodrum felt like a once-in-a-lifetime experience, but looking back, I am certain it has already become a lifelong habit—and, above all, a beautiful friendship. It has been a long time since I last felt this surge of energy radiating from my core.",
-      result: "تحول الحياة، طاقة متجددة"
+      quote: "لقد علمني هذا حقًا الكثير عن نفسي. شعرت أنني كنت أفعل ذلك في بيئة آمنة جدًا — مع أخصائي تغذية يتابعك، مع أشخاص يعرفون ما يفعلونه، في إعداد طبي جدًا، ومع برامج مناسبة لمساعدتك على إزالة السموم.",
+      result: "تعلم الذاتي، بيئة آمنة"
     }
   ];
 
