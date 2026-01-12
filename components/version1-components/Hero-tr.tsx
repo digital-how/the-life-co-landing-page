@@ -22,16 +22,16 @@ export function HeroTR() {
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center text-white">
         <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 max-w-4xl mx-auto">
-          Kilo Verme<br />
+          Kilo verme<br />
           <span className="block mt-2 text-5xl md:text-6xl lg:text-7xl italic" style={{ fontFamily: 'Cormorant Garamond', fontWeight: 300, letterSpacing: '0.02em' }}>
-            Denge ile, Zorla Değil
+            Denge ile, zorlamadan
           </span>
         </h1>
         <p className="text-lg md:text-xl mb-4 max-w-3xl mx-auto opacity-95">
-          Esnek başlangıç tarihleri ve 4 günden uzun konaklamalara kadar program süreleriyle kişiselleştirilmiş kilo verme wellness retreat'i.
+          Esnek başlangıç tarihleri ve 4 gün ve üzeri program seçenekleri sunan kişiye özel kilo verme wellness retreati.
         </p>
         <p className="text-base md:text-lg mb-8 max-w-2xl mx-auto opacity-90 italic">
-          Yolculuğunuz hazır olduğunuzda başlar — ve vücudunuzun gerektirdiği sürece devam eder.
+          Yolculuğunuz, siz hazır olduğunuzda başlar — ve bedeniniz ihtiyaç duyduğu sürece devam eder.
         </p>
         
         <a href="#get-started">

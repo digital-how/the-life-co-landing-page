@@ -23,15 +23,15 @@ export function WhyItMattersTR() {
             Bu sadece kilo vermekle ilgili olsaydı burada olmazdınız.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Yemekleri kontrol etmeyi denediniz. Daha sıkı çalıştınız. Disiplinli oldunuz. Detoks, metabolizma, dengeyi anlıyorsunuz. Eksik olan çaba veya bilgi değil.
+            Yediklerinizi kontrol etmeyi de denediniz. Daha fazla zorlamayı da, disiplinli olmayı da. Detoksu, metabolizmayı, dengeyi biliyorsunuz. Eksik olan çaba ya da bilgi değildi.
           </p>
           <div className="space-y-1 my-6">
             <p className="text-lg text-gray-700">Doğru ortam.</p>
             <p className="text-lg text-gray-700">Doğru rehberlik.</p>
-            <p className="text-lg text-gray-700">Birinin vücudunuzun neye ihtiyacı olduğunu gerçekten bildiği — ve yakından izlediği hissi.</p>
+            <p className="text-lg text-gray-700">Bedeninizin gerçekten neye ihtiyacı olduğunu bilen ve sizi yakından izleyen bir ekiple olma hissi.</p>
           </div>
           <p className="text-lg text-gray-900 font-medium mt-6">
-            İşte TheLifeCo burada başlar.
+            TheLifeCo tam da burada başlar.
           </p>
         </div>
 
@@ -41,13 +41,13 @@ export function WhyItMattersTR() {
         {/* Section 2: We Know the Pattern */}
         <div className="mb-16 space-y-4">
           <h3 className="text-2xl md:text-3xl mb-6" style={{ color: '#01609C' }}>
-            Kalıbı Biliyoruz — ve Nasıl Kıracağımızı
+            Bu Döngüyü Biliyoruz — ve Nasıl Kırılacağını da
           </h3>
           <p className="text-lg text-gray-700 leading-relaxed">
-            On binlerce insanı bu an boyunca yönlendirdik — tereddüt, umut, bu sefer farklı olması gerektiği hissi.
+            On binlerce kişiye, tereddütle umut arasında gidip gelinen ve "bu kez farklı olmalı" duygusunun hissedildiği bu yol ayrımında rehberlik ettik.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Programlarımız bu deneyimle şekillenir: tıbbi bilgiye dayalı, sürekli gözlemlenen ve vücudunuz yanıt verdiğinde ayarlanan. Belirsizlikten tek başınıza geçmeniz asla istenmez.
+            Programlarımız bu deneyimle şekillenir: tıbbi temelli, sürekli gözlemlenen ve bedeninizin verdiği yanıta göre ayarlanan. Belirsizlikle tek başınıza mücadele etmeniz beklenmez
           </p>
         </div>
 
@@ -57,14 +57,15 @@ export function WhyItMattersTR() {
         {/* Section 3: This Is Where You Let Go */}
         <div className="mb-16 space-y-4">
           <h3 className="text-2xl md:text-3xl mb-6" style={{ color: '#01609C' }}>
-            Burada Bırakırsınız — Güvenle
+            Burada Yüklerinizi Güvenle Bırakırsınız
           </h3>
           <p className="text-lg text-gray-700 leading-relaxed">
             Burada, kilo kaybı zorlanmaz.<br />
             İzin verilir.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Beslenme kısıtlamanın yerini alır. Gözlem tahminin yerini alır. Denge kontrolün yerini alır. Ve o alanda, değişim başlamaya başlar — genellikle beklenenden daha doğal bir şekilde.
+            Kısıtlamanın yerini beslenme alır. Tahminlerin yerini gözlem. Kontrolün yerini denge.
+            Ve bu alanda değişim — çoğu zaman beklenenden çok daha doğal biçimde — başlar.
           </p>
         </div>
 
@@ -77,14 +78,14 @@ export function WhyItMattersTR() {
             Bir Davet
           </h3>
           <p className="text-lg text-gray-700 leading-relaxed">
-            TheLifeCo'yu seçmek, düşünülmüş bir adımdır — her şeyi kendi başınıza yönetmeyi bırakmanıza izin veren bir adım.
+            TheLifeCo'yu seçmek, her şeyi tek başınıza yönetmeyi bırakmanıza izin veren bilinçli bir adımdır.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Konaklamanız boyunca yönlendirilir, desteklenir ve gözlemlenirsiniz, vücudunuz yanıt verdiğinde her öğe uyarlanır.
+            Konaklamanız boyunca yönlendirilir, desteklenir ve gözlemlenirsiniz; bedeninizin verdiği yanıta göre her unsur uyarlanır.
           </p>
           <div className="space-y-1 mt-6">
-            <p className="text-lg text-gray-700">Başka bir stratejiye ihtiyacınız yok.</p>
-            <p className="text-lg text-gray-900 font-medium">Vücudunuzun nihayet yanıt verebileceği bir yere ihtiyacınız var.</p>
+            <p className="text-lg text-gray-700">Yeni bir stratejiye daha ihtiyacınız yok.</p>
+            <p className="text-lg text-gray-900 font-medium">Bedeninizin nihayet yanıt verebileceği bir yere ihtiyacınız var.</p>
           </div>
         </div>
       </div>
@@ -96,7 +97,7 @@ export function WhyItMattersTR() {
             Dönüşümünüze Başlayın
           </h3>
           <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-            Kişiselleştirilmiş wellness programlarımız aracılığıyla hayatlarını dönüştüren binlere katılın
+            Kişiye özel wellness programlarımızla hayatını dönüştüren binlerce kişiye katılın
           </p>
           <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <Input 

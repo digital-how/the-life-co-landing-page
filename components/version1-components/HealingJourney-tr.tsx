@@ -2,44 +2,44 @@ export function HealingJourneyTR() {
   const layers = [
     {
       number: "01",
-      title: "Vücudun Nefes Almasına İzin Veren Ortam",
-      subtitle: "Rahatlama ve Destekleyici Ortam",
-      description: "Çevreniz tesadüfi değildir. Sakin, onarıcı bir ortam stresi azaltmaya ve sinir sistemini düzenlemeye yardımcı olur — metabolik sağlık ve doğal kilo düzenlemesi için temel bir temel.",
-      closing: "Burada, vücudunuzdan değişmesi istenmeden önce yavaşlamasına izin verilir."
+      title: "Bedenin Nefes Almasına İzin Veren Bir Ortam",
+      subtitle: "Rahatlatıcı & Destekleyici Ortam",
+      description: "Bulunduğunuz ortam tesadüf değildir. Sakinleştirici ve onarıcı bir çevre, stresin azalmasına ve sinir sisteminin düzenlenmesine yardımcı olur — bu da metabolik sağlık ve doğal kilo dengesi için temel oluşturur.",
+      closing: "Burada bedeninizden değişmesi istenmeden önce yavaşlamasına ve huzur bulmasına izin verilir."
     },
     {
       number: "02",
-      title: "Sizin Etrafınızda Tasarlanmış Bir Program",
-      subtitle: "Kişiselleştirilmiş Wellness Programı",
-      description: "Programınız kişisel bir sağlık değerlendirmesiyle şekillenir ve konaklamanız boyunca rafine edilir. Beslenme, terapiler ve günlük yapı, vücudunuzun nasıl yanıt verdiğine göre sürekli uyarlanır.",
-      closing: "Kilo azaltma, güç, enerji veya canlılıktan ödün vermeden metabolik dengeyle birlikte desteklenir."
+      title: "Size Göre Tasarlanmış Bir Program",
+      subtitle: "Kişiye Özel Wellness Programı",
+      description: "Programınız kişisel sağlık değerlendirmesine göre şekillenir ve konaklamanız boyunca bedeninizin verdiği yanıta göre sürekli güncellenir.",
+      closing: "Kilo azaltımı; güç, enerji ve canlılıktan ödün vermeden, metabolik dengeyle birlikte desteklenir."
     },
     {
       number: "03",
       title: "Alışkanlıkların Arkasındaki Zihni Destekleme",
       subtitle: "Zihinsel Dayanıklılık ve Farkındalık",
-      description: "Kilo sadece fizyolojiden değil, stresten, duygusal kalıplardan ve günlük alışkanlıklardan etkilenir. Farkındalık uygulamaları ve zihinsel dayanıklılık desteği, farkındalık ve tutarlılık geliştirmenize yardımcı olur, daha sakin ve sürdürülebilir seçimlerin ortaya çıkmasına izin verir.",
+      description: "Kilo yalnızca fizyolojiyle değil; stres, duygusal kalıplar ve günlük alışkanlıklarla da ilişkilidir. Farkındalık uygulamaları ve zihinsel dayanıklılık desteği, daha sakin ve sürdürülebilir seçimlerin ortaya çıkmasına yardımcı olur.",
       closing: null
     },
     {
       number: "04",
-      title: "Bütünleştirici Tıp ve Hedefli Terapiler",
+      title: "Bütüncül Tıp & Hedefli Terapiler",
       subtitle: "Tıbbi ve Biohacking Desteği",
-      description: "Terapiler detoksifikasyon, dolaşım, iyileşme ve metabolik verimliliği desteklemek için seçilir. Bu müdahaleler beslenme ve yaşam tarzı ayarlamalarıyla birlikte çalışır, vücudun zorlamadan yanıt verme yeteneğini artırır.",
+      description: "Terapiler; detoksifikasyonu, dolaşımı, toparlanmayı ve metabolik verimliliği desteklemek üzere seçilir. Beslenme ve yaşam tarzı düzenlemeleriyle birlikte çalışarak, bedenin zorlanmadan yanıt verme kapasitesini artırır.",
       closing: null
     },
     {
       number: "05",
-      title: "Retreat'ten Sonra Devam Eden Bir Ortaklık",
-      subtitle: "Eve Götürülecek Uygulamalar ve Öğrenmeler",
-      description: "Eğitim yolculuğun önemli bir parçasıdır. Günlük yaşamda uygulayabileceğiniz pratik rehberlik ve kişisel bir beceri ve uygulama araç kutusuyla ayrılırsınız — konaklamanızdan sonra devam eden, eve döndüğünüzde kilo, kan şekeri ve günlük alışkanlıklarda uzun vadeli dengeyi sağlayan sürekli bir ortaklıkla desteklenir.",
+      title: "Retreat Sonrasında da Süren Bir Ortaklık",
+      subtitle: "Eve Taşınan Uygulamalar & Öğrenimler",
+      description: "Farkındalık ve eğitim yolculuğun temel bir parçasıdır. Merkezlimizden günlük hayatta uygulayabileceğiniz pratik rehberlik ve kişisel bir beceri ve uygulama araç setiyle ayrılırsınız — konaklamanızdan sonra da devam eden bir destekle, kilo, kan şekeri ve günlük alışkanlıklarda uzun vadeli dengeyi sürdürmeniz sağlanır.",
       closing: null
     },
     {
       number: "06",
-      title: "Süreci Tamamlayan Restorasyon",
+      title: "Süreci Tamamlayan Yenilenme",
       subtitle: "Spa ve Derin İyileşme",
-      description: "Onarıcı tedaviler ve spa deneyimleri fiziksel iyileşmeyi ve derin rahatlamayı destekler. Bu son katman, vücudun sıfırlama, değişimi entegre etme ve zamanla olumlu yanıt verme kapasitesini güçlendirir.",
+      description: "Onarıcı bakımlar ve spa deneyimleri, fiziksel toparlanmayı ve derin gevşemeyi destekler. Bu son katman, bedenin sıfırlanma, değişimi entegre etme ve zaman içinde olumlu yanıt verme kapasitesini güçlendirir.",
       closing: null
     }
   ];
@@ -53,10 +53,10 @@ export function HealingJourneyTR() {
             Hassasiyetle Yönlendirilen, İncelikli Bir Bakım Yolculuğu
           </h2>
           <p className="text-lg text-gray-600 mb-6 max-w-3xl mx-auto italic">
-            Klinik içgörüyle şekillendirilmiş ve gözlem yoluyla sürekli rafine edilmiş kişiselleştirilmiş bakım.
+            Klinik içgörüyle şekillenen ve gözlemle sürekli geliştirilen kişiselleştirilmiş bakım.
           </p>
           <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            TheLifeCo İyileşme Yolculuğunun her katmanı net bir amaca hizmet eder. Birlikte, vücudunuzun dengeyi geri kazandırmak için ihtiyaç duyduğu koşulları yaratırlar — güvenli, ilerleyici ve kalıcı bir şekilde.
+            TheLifeCo İyileşme Yolculuğu'nun her katmanı net bir amaca hizmet eder. Birlikte, bedeninizin dengeyi güvenle, kademeli olarak ve kalıcı biçimde yeniden kurması için gerekli koşulları yaratırlar.
           </p>
         </div>
 

@@ -8,7 +8,7 @@ import { GuestExperienceTR } from "@/components/version1-components/GuestExperie
 import { ProgramJourneyTR } from "@/components/version1-components/ProgramJourney-tr"
 import { HealingJourneyTR } from "@/components/version1-components/HealingJourney-tr"
 import { TestimonialsTR } from "@/components/version1-components/Testimonials-tr"
-import { VideoTestimonial } from "@/components/version1-components/VideoTestimonial"
+import { VideoTestimonialTR } from "@/components/version1-components/VideoTestimonial-tr"
 import { FAQTR } from "@/components/version1-components/FAQ-tr"
 import { FooterTR } from "@/components/version1-components/Footer-tr"
 import { PhotoStrip } from "@/components/version1-components/PhotoStrip"
@@ -21,7 +21,7 @@ export default function BodrumPageTR() {
       <ResultsTR />
       <WhatsIncludedTR />
       <PricingInquiryTR />
-      <VideoTestimonial />
+      <VideoTestimonialTR />
       <WhyItMattersTR />
       <ProgramJourneyTR />
       <HealingJourneyTR />

@@ -12,23 +12,23 @@ export function ResultsTR() {
     {
       icon: TrendingUp,
       title: "Kalıcı",
-      description: "Sürdürülebilir kilo kaybı ve yaşam tarzı değişiklikleri. Yaşam boyu sağlığı destekleyen alışkanlıklar öğrenin.",
+      description: "Kalıcı kilo kaybı ve sürdürülebilir yaşam tarzı değişiklikleri. Yaşam boyu sağlığı destekleyen alışkanlıklar öğrenin.",
       stat: "94%",
       statLabel: "6+ ay sonuçları koruma"
     },
     {
       icon: Scale,
       title: "Etkili",
-      description: "Önemli kilo verme sonuçları elde edin. Misafirlerimiz tıbbi gözetimli programlarımız aracılığıyla önemli kilo kaybederler.",
+      description: "Tıbbi gözetim altında uygulanan programlarımızla belirgin bir şekilde kilo verin. Misafirlerimizin çoğu programlarımızda tatmin edici kilo kaybı yaşar.",
       stat: "8-12 kg",
       statLabel: "Ortalama kilo kaybı (14 gün)"
     },
     {
       icon: Droplet,
-      title: "Yağ ve Toksinlerden Kaybetme",
+      title: "Yağ ve toksinlerden arınma",
       description: "Gerçek yağ kaybını ve azaltılmış toksik yükü hedefleyin.",
       stat: "85%",
-      statLabel: "Yağ kaybı vs su kaybı"
+      statLabel: "Yağ kaybı ve su kaybı arasındaki fark"
     }
   ];
 
@@ -41,7 +41,7 @@ export function ResultsTR() {
           </h2>
           <div className="w-20 h-1 bg-[#01609C] mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Enerji, netlik, yağ kaybı ve sürdürülebilir değişimle ölçülür.
+            Enerji, zihinsel berraklık, yağ kaybı ve sürdürülebilir değişimle ölçülür.
           </p>
         </div>
 

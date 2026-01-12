@@ -8,36 +8,36 @@ import {
 export function FAQTR() {
   const faqs = [
     {
-      question: "Ne kadar hızlı sonuç göreceğim?",
+      question: "Sonuçları ne kadar sürede görürüm?",
       answer: "Çoğu misafir 3-5 gün içinde daha enerjik hissettiğini ve olumlu değişiklikler fark ettiğini bildirir. Görünür kilo kaybı genellikle ilk hafta içinde başlar. Ancak, en önemli fayda, programınız bittikten çok sonra bile sonuç vermeye devam eden kalıcı yaşam tarzı değişiklikleridir."
     },
     {
       question: "Program tıbbi gözetim altında mı?",
-      answer: "Evet, kesinlikle. Tüm programlarımız doktorlar, beslenme uzmanları ve wellness uzmanları dahil olmak üzere lisanslı tıp profesyonelleri tarafından geliştirilir ve gözetilir. Programınızın başında kapsamlı bir sağlık değerlendirmesi alacaksınız ve tıbbi personel konaklamanız boyunca mevcuttur."
+      answer: "Evet, kesinlikle. Tüm programlarımız lisanslı hekimler, hemşireler, beslenme uzmanları ve wellness uzmanları tarafından geliştirilir ve denetlenir. Program başında kapsamlı bir sağlık değerlendirmesi yapılır ve konaklamanız boyunca tıbbi ekip hazır bulunur."
     },
     {
       question: "TheLifeCo'yu diğer detoks programlarından farklı kılan nedir?",
-      answer: "Hızlı çözüm temizliklerinden farklı olarak, programlarımız tıbbi gözetim, kişiselleştirilmiş beslenme planları, bütünsel wellness uygulamaları ve sürekli desteği birleştirir. Geçici sonuçlara değil, sürdürülebilir yaşam tarzı değişikliklerine odaklanıyoruz. 6 ay sonra kilo kaybını koruma konusundaki %94 başarı oranımız bu yaklaşımı gösterir."
+      answer: "Hızlı çözümler sunan kürlerin aksine; programlarımız tıbbi gözetimi, kişiye özel beslenme planlarını, bütüncül wellness uygulamalarını ve sürekli desteği bir araya getirir. Geçici sonuçlara değil, sürdürülebilir yaşam tarzı değişikliklerine odaklanırız. 6 ay sonra kilo kaybını koruma oranımızın %94 olması bunun göstergesidir."
     },
     {
       question: "Program sırasında aç kalacak mıyım?",
-      answer: "Hayır. Programlarımız sizi doyuran besin açısından zengin gıdalarla vücudunuzu beslemek için tasarlanmıştır. Gün boyunca lezzetli, şef hazırlığı yemeklerin tadını çıkaracaksınız. Birçok misafir yemeğin ne kadar doyurucu ve lüks olduğuna şaşırır — TheLifeCo'da detoks yoksunluk anlamına gelmez."
+      answer: "Hayır. Programlarımız, sizi doyuran besin değeri yüksek gıdalarla bedeni beslemek üzere tasarlanmıştır. Gün boyunca lezzetli, şeflerimiz tarafından hazırlanan öğünler sunulur. Pek çok misafir, yemeğin ne kadar doyurucu ve lezzetli olduğuna şaşırır. TheLifeCo'da detoks yoksunluk anlamına gelmez. "
     },
     {
       question: "Programlar ne kadar sürer?",
-      answer: "Hedeflerinize ve programınıza bağlı olarak 7 ila 21 gün arasında programlar sunuyoruz. Wellness danışmanlarımız konsültasyonunuz sırasında ideal program uzunluğunu seçmenize yardımcı olabilir. Birçok misafir 7-14 günlük bir programla başlar ve ek seanslar için geri döner."
+      answer: "Hedeflerinize ve zamanınıza bağlı olarak 7 ila 21 gün arasında programlar sunuyoruz. Wellness danışmanlarımız, görüşmeniz sırasında sizin için ideal süreyi belirlemenize yardımcı olur. Birçok misafir 7–14 günle başlar ve ek programlar için geri döner."
     },
     {
       question: "Ayrıldıktan sonra sonuçları koruyabilir miyim?",
       answer: "Evet! Sürdürülebilirlik yaklaşımımızın temelidir. Kişiselleştirilmiş yemek planları, yaşam tarzı stratejileri ve sürekli destek kaynaklarıyla ayrılırsınız. Mezunlarımız sonuçlarını altı ay sonra %94 oranında korur, bu da sektör ortalaması olan %5-20 ile karşılaştırıldığında çok yüksektir."
     },
     {
-      question: "Program tıbbi durumları olan kişiler için uygun mu?",
+      question: "Program tıbbi rahatsızlıkları olanlar için uygun mu?",
       answer: "Programlarımız diyabet, hipertansiyon ve sindirim sorunları dahil olmak üzere çoğu sağlık durumu için uyarlanabilir. İlk konsültasyonunuz sırasında tıbbi ekibimiz sağlık geçmişinizi gözden geçirecek ve programınızı buna göre özelleştirecektir. Herhangi bir wellness programına başlamadan önce kişisel doktorunuzla görüşmenizi öneririz."
     },
     {
-      question: "Program maliyetine neler dahil?",
-      answer: "Programınız şunları içerir: tıbbi konsültasyonlar ve izleme, tüm yemekler ve detoks takviyeleri, konaklama (konaklamalı programlar için), wellness aktiviteleri (yoga, meditasyon, fitness sınıfları), spa tedavileri, eğitici atölyeler ve program sonrası destek materyalleri."
+      question: "Program ücretine neler dahil?",
+      answer: "Tıbbi konsültasyonlar ve takip, tüm yemekler ve detoks takviyeleri, konaklama (konaklamalı programlarda), wellness aktiviteleri (yoga, meditasyon, fitness), spa uygulamaları, eğitici atölyeler ve program sonrası destek materyalleri dahildir."
     },
     {
       question: "Sanal/uzaktan programlar sunuyor musunuz?",
@@ -78,7 +78,7 @@ export function FAQTR() {
             Hala sorularınız mı var?
           </h3>
           <p className="text-gray-600 mb-6">
-            Wellness danışmanlarımız ihtiyaçlarınıza uygun mükemmel programı bulmanıza yardımcı olmak için burada
+            Wellness danışmanlarımız, ihtiyaçlarınıza en uygun programı bulmanıza yardımcı olmak için burada.
           </p>
           <button 
             className="px-8 py-3 rounded-lg text-white transition-colors"

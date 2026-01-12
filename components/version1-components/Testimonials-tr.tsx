@@ -7,7 +7,7 @@ export function TestimonialsTR() {
       location: "UK",
       program: "",
       rating: 5,
-      quote: "I came to TheLifeCo Bodrum for one week, hoping for a change. By the end, my blood sugar levels were back in the normal range, and I'd lost 4 kilos. The program meals were incredible; fresh, filling salads that kept me satisfied all day. Next week, I'll have my online consultation with my dietitian here to keep the progress going. This has truly been life-changing.",
+      quote: "TheLifeCo Bodrum'a bir haftalık bir değişim umuduyla geldim. Haftanın sonunda kan şekerim normal aralığa döndü ve 4 kilo verdim. Program yemekleri inanılmazdı; taze, doyurucu salatalar gün boyu tok kalmamı sağladı. Önümüzdeki hafta diyetisyenimle online görüşmem var, böylece ilerlemeyi sürdüreceğim. Gerçekten hayatımı değiştirdi.",
       result: "4 kilo kaybı, kan şekeri normale döndü"
     },
     {
@@ -15,7 +15,7 @@ export function TestimonialsTR() {
       location: "",
       program: "",
       rating: 5,
-      quote: "I would like to express my heartfelt gratitude to all of you, especially your incredible staff, for giving me the opportunity to transform my life. My stay at LifeCo Bodrum felt like a once-in-a-lifetime experience, but looking back, I am certain it has already become a lifelong habit—and, above all, a beautiful friendship. It has been a long time since I last felt this surge of energy radiating from my core.",
+      quote: "Hayatımı dönüştürme fırsatını sunduğunuz için, özellikle muhteşem ekibinize en içten teşekkürlerimi sunmak isterim. LifeCo Bodrum'daki konaklamam bir defaya mahsus bir deneyim gibi hissettirdi; ancak geriye dönüp baktığımda bunun çoktan ömür boyu sürecek bir alışkanlığa ve her şeyden önemlisi güzel bir dostluğa dönüştüğünden eminim. Uzun zamandır ilk kez, merkezimden yayılan bu enerji artışını hissettim.",
       result: "Yaşam dönüşümü, yenilenen enerji"
     }
   ];

@@ -2,14 +2,14 @@ import { Check } from "lucide-react";
 
 export function GuestExperienceTR() {
   const experiences = [
-    "Sağlıklı bir şekilde ve zaman diliminde elde edilen dengeli kilo azaltma",
-    "Genellikle daha iyi enerji ve canlılıkla birlikte gelen yükseltilmiş metabolik denge",
-    "Değeri tanınan dengeli bir diyetin korunması",
-    "Başarının ödülü olarak gelen psikolojik destek",
-    "Beslenme alırken sindirim ve gastronomik dinlenme",
-    "Azaltılmış iltihaplanma ve iyileştirilmiş hücresel sağlık",
-    "Daha iyi uyku kalitesi ve zihinsel netlik",
-    "Güçlendirilmiş bağışıklık sistemi işlevi"
+    "Sağlıklı ve dengeli kilo kaybı",
+    "Gelişmiş metabolik dengeyle beraber artan enerji ve canlılık",
+    "Dengeli beslenme alışkanlıklarının öneminin anlaşılması ve korunması",
+    "Başarıyla gelen psikolojik güçlenme",
+    "Sindirim ve mide-bağırsak sisteminin dinlenmesi (besin değeri yüksek ve destekleyici bir beslenme eşliğinde)",
+    "Azalan inflamasyon ve gelişen hücresel sağlık",
+    "Daha iyi uyku kalitesi ve zihinsel berraklık",
+    "Güçlenen bağışıklık sistemi fonksiyonu"
   ];
 
   return (
@@ -17,7 +17,7 @@ export function GuestExperienceTR() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl mb-4" style={{ color: '#01609C' }}>
-            Misafirlerin Genellikle Yaşadıkları
+            Misafirlerin En Sık Deneyimledikleri
           </h2>
           <div className="w-20 h-1 bg-[#01609C] mx-auto mb-6"></div>
         </div>
@@ -38,7 +38,7 @@ export function GuestExperienceTR() {
           
           <div className="mt-10 pt-8 border-t border-gray-200 text-center">
             <p className="text-gray-600 italic">
-              Sonuçlar bireysel sağlık durumlarına ve program seçimine bağlı olarak değişebilir
+              Sonuçlar, bireysel sağlık durumu ve seçilen programa göre değişiklik gösterebilir.
             </p>
           </div>
         </div>

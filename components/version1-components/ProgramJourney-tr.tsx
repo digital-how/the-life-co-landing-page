@@ -12,58 +12,58 @@ export function ProgramJourneyTR() {
       title: "1. Gün — Varış ve Değerlendirme",
       subtitle: "Temelin atılması",
       items: [
-        "Tıbbi check-in ve tam sağlık değerlendirmesi",
+        "Tıbbi kayıt ve kapsamlı sağlık değerlendirmesi",
         "Vücut kompozisyon analizi ve canlı kan analizi",
-        "Tıbbi konsültasyon ve isteğe bağlı gelişmiş tanılar",
-        "Wellness koç konsültasyonu ve program kişiselleştirmesi",
-        "Beslenme planı, terapiler ve tedavilerin seçimi"
+        "Tıbbi konsültasyon ve isteğe bağlı ileri tanı testleri",
+        "Wellness koçu görüşmesi ve programın kişiselleştirilmesi",
+        "Beslenme planı, terapiler ve uygulamaların seçimi"
       ],
-      closing: "Vücudunuz varsayılmaz, değerlendirilir. Her şey hassasiyetle başlar."
+      closing: "Bedeniniz varsayımlarla değil, ölçümlerle değerlendirilir. Her şey hassasiyetle başlar."
     },
     {
       number: "2",
       title: "2-3. Günler — Uyum Aşaması",
-      subtitle: "Vücudun ayarlanmasına izin verme",
+      subtitle: "Bedenin uyumlanmasına izin vermek",
       items: [
-        "Nazik detoksifikasyon başlar",
-        "Sinir sistemi düzenlemesi ve stres azaltma",
-        "İlk metabolik ayarlama",
+        "Detoks sürecinin nazikçe başlaması",
+        "Sinir sisteminin düzenlenmesi ve stresin azalması",
+        "İlk metabolik adaptasyon",
         "Hafif hareket, nefes çalışması ve onarıcı terapiler",
         "Yakın tıbbi ve wellness gözlemi"
       ],
-      closing: "Bu aşama güvenlik, destek ve vücudun yeni bir ritme yerleşmesiyle ilgilidir."
+      closing: "Bu aşama; güvenlik, destek ve bedenin yeni bir ritimle tanışmasıyla ilgilidir."
     },
     {
       number: "3",
       title: "4-7. Günler — Aktivasyon ve Momentum",
-      subtitle: "Görünür değişimin genellikle başladığı yer",
+      subtitle: "Gözle görülür değişimin sıkça başladığı dönem",
       items: [
-        "Artırılmış metabolik verimlilik",
-        "Geliştirilmiş yağ kullanımı",
-        "Daha derin detoksifikasyon yanıtı",
+        "Artan metabolik verimlilik",
+        "Gelişmiş yağ kullanım kapasitesi",
+        "Daha derin detoks modu",
         "Yapılandırılmış hareket ve biohacking terapileri",
-        "Birçok misafir daha net enerji ve erken kilo değişikliklerini fark etmeye başlar"
+        "Birçok misafir enerjisinin artığını ve kilo değişimlerini fark etmeye başlar"
       ],
-      closing: "Birçokları için, motivasyonun geri döndüğü yer burasıdır — doğal olarak."
+      closing: "Çoğu kişi için motivasyon burada — kendiliğinden — geri döner"
     },
     {
       number: "4",
       title: "8-14+ Günler — Dönüşüm Aşaması",
-      subtitle: "Sonuçları güçlendirme (daha uzun konaklamalar için)",
+      subtitle: "Sonuçların pekişmesi (daha uzun konaklamalar için)",
       items: [
-        "Devam eden yağ kaybı desteği",
-        "Kan şekeri ve iştah sinyallerinin stabilizasyonu",
-        "Zihinsel netlik ve duygusal denge derinleşir",
-        "Vücut kısa vadeli çözümler yerine sürdürülebilir kalıplara uyum sağlar"
+        "Süregelen yağ kaybı",
+        "Kan şekeri ve iştah sinyallerinin dengelenmesi",
+        "Zihinsel berraklık ve duygusal denge derinleşir",
+        "Beden, kısa vadeli çözümler yerine sürdürülebilir kalıplara uyum sağlar"
       ],
-      closing: "Kilo kaybı bir mücadele değil, bir yanıt haline gelir."
+      closing: "Kilo kaybı bir mücadele değil, doğal bir yanıt hâline gelir."
     },
     {
       number: "5",
       title: "Son Gün — Entegrasyon ve Hazırlık",
       subtitle: "Sorularla değil, netlikle ayrılma",
       items: [
-        "Takip vücut kompozisyonu ve kan analizi",
+        "Çıkış öncesi vücut kompozisyonu ve kan analizi",
         "Tıbbi ve wellness check-out konsültasyonları",
         "Retreat sonrası yaşam için kişiselleştirilmiş rehberlik",
         "Yaşam Tarzı Arkadaşı Uygulaması kaydı",
@@ -90,10 +90,10 @@ export function ProgramJourneyTR() {
             PROGRAM YOLCULUĞUNUZ
           </p>
           <h2 className="text-4xl md:text-5xl mb-4" style={{ color: '#01609C' }}>
-            Yolculuk Açıklaması
+            Yolculuk Nasıl İlerler
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            Varışınızdan ayrılışınıza kadar, konaklamanızın her aşaması dönüşümü desteklemek için düşünceli bir şekilde tasarlanmıştır.
+            Varış anınızdan ayrılışınıza kadar, konaklamanızın her aşaması dönüşümü desteklemek üzere özenle tasarlanmıştır.
           </p>
         </div>
 
@@ -182,7 +182,7 @@ export function ProgramJourneyTR() {
         {/* Bottom Text */}
         <div className="text-center mt-12">
           <p className="text-lg text-gray-700 italic">
-            Bu bir program değil — her aşamada desteklenen rehberli bir fizyolojik yolculuktur.
+            Bu bir takvim değil — her aşaması desteklenen, rehberli bir fizyolojik yolculuktur.
           </p>
         </div>
       </div>

@@ -2,12 +2,12 @@ export function WhatsIncludedTR() {
   const categories = [
     {
       title: "Konaklama ve Beslenme",
-      description: "Dengeyi geri kazandırmak için tasarlanmış kişiselleştirilmiş beslenme ile destekleyici bir retreat ortamı.",
+      description: "Dengeyi yeniden kurmak üzere tasarlanmış, kişiye özel beslenme ile desteklenen, iyileştirici bir retreat ortamı.",
       items: [
         "Retreat resortlarımızda konaklama (çift kişilik odalar)",
-        "Tüm yemekler ve gerekli takviyeleri içeren kişiselleştirilmiş beslenme planı",
-        "Beslenme yolları Master Detox, Yeşil Meyve Suyu, Çiğ Gıda, Ketojenik, Su Orucu veya Aralıklı Oruç içerebilir",
-        "Tüm beslenme, bireysel tıbbi ve wellness değerlendirmesine göre seçilir"
+        "Tüm öğünleri ve gerekli takviyeleri içeren kişiye özel beslenme planı",
+        "Beslenme planları; Master Detox, Yeşil Meyve-Sebze Suları, Çiğ Beslenme, Vegan Ketojenik, Su Orucu veya Aralıklı Oruç içerebilir",
+        "Her misafirin beslenme planı tıbbi ve wellness değerlendirmesine göre seçilir"
       ]
     },
     {
@@ -16,54 +16,54 @@ export function WhatsIncludedTR() {
       items: [
         "Diyetisyenler ve psikologlarla günlük wellness koçluğu",
         "Duygusal Yeme ile Başa Çıkma Seansı (x2)",
-        "Vücut kompozisyon analizi (2×)",
-        "Kızılötesi sauna ve buhar odası erişimi (günlük)",
-        "Kolon temizliği (kendi kendine uygulanan, günlük)",
+        "Vücut kompozisyon analizi (x2)",
+        "Kızılötesi sauna ve buhar odası kullanımı (günlük)",
+        "Kolon temizliği (kişinin kendisinin uyguladığı, günlük)",
         "Sınırsız detoks çorbası ve bitki çayları"
       ]
     },
     {
       title: "Bio-Hacking Teknolojileri (Günlük)",
-      description: "Detoksifikasyon, iyileşme ve metabolik verimliliği destekleyen gelişmiş teknolojiler.",
+      description: "Toksinlerden arınmayı, iyileşmeyi ve metabolik verimliliği destekleyen ileri teknolojiler.",
       items: [
         "Turbosonic titreşim terapisi",
         "BioCharger enerji terapisi",
         "BioPhoton terapisi",
         "Oksijen terapisi",
         "Luminette ışık terapisi",
-        "Ters masaj masası terapisi"
+        "Inversiyon Ters duruş terapisi"
       ]
     },
     {
       title: "Tıbbi Hizmetler",
       description: "Konaklamanız boyunca güvenlik, hassasiyet ve güven sağlayan sürekli tıbbi gözetim.",
       items: [
-        "Tıbbi konsültasyonlar (2×)",
-        "Tam donanımlı yerinde tıbbi klinik",
-        "Doktor ve hemşirelerden oluşan özel tıbbi ekip",
-        "7/24 mevcut tıbbi destek",
-        "Ortaklık yapılan acil hastane"
+        "Tıbbi konsültasyonlar (x2)",
+        "Tam donanımlı, merkez içi medikal klinik",
+        "Doktor ve hemşirelerden oluşan özel medikal ekip",
+        "7/24 tıbbi destek",
+        "Anlaşmalı acil hastane"
       ]
     },
     {
-      title: "Son Teknoloji Metabolik Terapiler",
-      description: "Yağ metabolizmasını ve fiziksel dayanıklılığı artırmak için tasarlanmış hedefli müdahaleler.",
+      title: "İleri Metabolik Terapiler",
+      description: "Yağ metabolizmasını ve fiziksel dayanıklılığı artıran sonuç odaklı uygulamalar.",
       items: [
-        "CAR.O.L bisiklet seansları (2×)",
+        "CAR.O.L bisiklet seansları (x2)",
         "Robolex terapisi (30 dakika × 2)",
-        "Soğuk su seansları (2×)",
-        "Pressoterapi lenfatik drenaj (1×)",
+        "Soğuk su havuzu seansları (×2)",
+        "Presoterapi lenfatik drenaj (x1)",
         "Kırmızı ışık yatak terapisi veya alternatif metabolik terapi"
       ]
     },
     {
       title: "Günlük Aktiviteler",
-      description: "Uzun vadeli sağlığı desteklemek için hareket, eğitim ve iyileşmenin yapılandırılmış ritmi.",
+      description: "Uzun vadeli iyilik hâlini desteklemek için hareketi, eğitimi ve iyileşmeyi bir araya getiren, düzenli ve dengeli bir günlük akış.",
       items: [
         "Gün doğumu yürüyüşleri",
         "Mobilite ve rahatlama yogası",
         "Meditasyon seansları",
-        "Fonksiyonel antrenman (haftada 3×)",
+        "Fonksiyonel antrenman (haftada x3)",
         "Eğitici wellness konuşmaları",
         "Akşam rahatlama aktiviteleri"
       ]
@@ -79,7 +79,7 @@ export function WhatsIncludedTR() {
             Retreat'inizde Neler Dahil
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Ek ücret yok, gizli maliyet yok — aşağıdaki her hizmet programınıza dahildir.
+            Ek ücret yok, gizli maliyet yok -  aşağıdaki tüm hizmetler programınıza dahildir.
           </p>
         </div>
 
@@ -140,8 +140,8 @@ export function WhatsIncludedTR() {
         {/* Bottom Message */}
         <div className="text-center mt-8 md:mt-12 pt-6 md:pt-8 border-t-2 border-gray-200">
           <p className="text-base md:text-xl lg:text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed">
-            Konaklama dahildir — ancak katıldığınız şey bir konaklamadan çok daha fazlasıdır.<br className="hidden md:block" />
-            <span className="md:inline block mt-1 md:mt-0"> </span>Her öğenin dahil olduğu ve sizin için koordine edildiği, tamamen rehberli, çok katmanlı bir programdır.
+            Konaklama dahildir — ancak bu deneyim yalnızca bir konaklamadan çok daha fazlasıdır.<br className="hidden md:block" />
+            <span className="md:inline block mt-1 md:mt-0"> </span>Bütüncül yaklaşımla her öğenin sizin için koordine edildiği, tamamen rehberli, çok katmanlı bir programdır.
           </p>
         </div>
       </div>

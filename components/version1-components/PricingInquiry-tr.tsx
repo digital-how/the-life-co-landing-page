@@ -46,33 +46,33 @@ export function PricingInquiryTR() {
                 <p className="text-gray-600 text-sm mb-2">Başlangıç fiyatı</p>
                 <p className="text-4xl md:text-5xl text-gray-800 mb-2">€400</p>
                 <p className="text-gray-600 italic text-sm mb-2">gecelik, her şey dahil</p>
-                <p className="text-gray-700 text-sm">Minimum konaklama 4 gün, önerilen 7+ gün</p>
+                <p className="text-gray-700 text-sm">Minimum konaklama 4 gün, önerilen süre: 7+ gün</p>
               </div>
 
               <div className="space-y-4 mb-6">
                 <p className="text-gray-700 leading-relaxed">
-                  Konaklama, kişiselleştirilmiş program tasarımı, yemekler, terapiler, aktiviteler ve yerinde destek dahildir.
+                  Konaklama, kişiselleştirilmiş program tasarımı, beslenme, terapiler, ektkinlikler ve merkez içi destek dahildir.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Bu tam kapsamlı teklif, kilo kaybını tüm vücut sağlığıyla birlikte desteklemek için tasarlanmış tıbbi bilgiye dayalı, çok katmanlı bir programı yansıtır.
+                  Bu her şey dahil teklif, kilo kaybını tüm beden sağlığıyla birlikte desteklemek üzere tasarlanmış, tıbbi temelli ve çok katmanlı bir programı yansıtır.
                 </p>
               </div>
 
               <div className="bg-white border-l-4 border-[#01609C] p-4 rounded">
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  <span className="font-medium text-gray-700">Lütfen dikkat:</span> Belirtilen fiyat Bodrum retreat'imiz içindir. Diğer merkezler müsaitliğe göre daha düşük veya daha yüksek program fiyatlarına sahip olabilir.
+                  <span className="font-medium text-gray-700">Lütfen dikkat:</span> Belirtilen fiyat Bodrum retreat'i içindir. Diğer merkezlerde program fiyatları, müsaitliğe göre daha düşük veya daha yüksek olabilir.
                 </p>
               </div>
 
               <p className="text-gray-500 italic text-sm mt-4">
-                Daha uzun program süreleri ve geliştirilmiş program derinliği danışmanlık sonrasında mevcuttur.
+                Daha uzun program süreleri ve daha derinleştirilmiş program içerikleri, danışma sonrasında sunulabilir.
               </p>
             </div>
 
             {/* Right Side - Contact Form */}
             <div className="bg-white p-8 md:p-12">
               <h3 className="text-2xl md:text-3xl mb-3" style={{ color: '#01609C' }}>
-                Bir Uzmanla Konuşun
+                Bir Uzmanla Görüşün
               </h3>
               <p className="text-gray-600 mb-6">
                 Uzmanlarımızdan kişiselleştirilmiş rehberlik alın.
@@ -158,7 +158,7 @@ export function PricingInquiryTR() {
 
                 <div>
                   <label htmlFor="goals" className="block text-sm text-gray-700 mb-2">
-                    Hedefleriniz hakkında bize bilgi verin (İsteğe Bağlı)
+                    Hedeflerinizi Bizimle Paylaşın (isteğe bağlı)
                   </label>
                   <textarea
                     id="goals"
@@ -166,7 +166,7 @@ export function PricingInquiryTR() {
                     value={formData.goals}
                     onChange={handleChange}
                     rows={4}
-                    placeholder="Herhangi bir özel hedef veya sorunuzu paylaşın..."
+                    placeholder="Özel hedeflerinizi veya sorularınızı yazın…"
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#01609C] focus:border-transparent transition-all resize-none"
                   />
                 </div>
@@ -175,7 +175,7 @@ export function PricingInquiryTR() {
                   type="submit"
                   className="w-full py-4 bg-[#C17F4E] hover:bg-[#A86D3F] text-white rounded-lg transition-colors duration-300 text-lg font-medium"
                 >
-                  Talebi Gönder
+                  Talep Gönder
                 </button>
 
                 <p className="text-center text-sm text-gray-600 mt-4">
