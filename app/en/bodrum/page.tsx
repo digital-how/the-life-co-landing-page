@@ -9,7 +9,6 @@ import { ProgramJourney } from "@/components/version1-components/ProgramJourney"
 import { HealingJourney } from "@/components/version1-components/HealingJourney"
 import { Testimonials } from "@/components/version1-components/Testimonials"
 import { VideoTestimonial } from "@/components/version1-components/VideoTestimonial"
-import { Endorsements } from "@/components/version1-components/Endorsements"
 import { FAQ } from "@/components/version1-components/FAQ"
 import { Footer } from "@/components/version1-components/Footer"
 import { PhotoStrip } from "@/components/version1-components/PhotoStrip"
@@ -29,7 +28,6 @@ export default function BodrumPage() {
       <GuestExperience />
       <PhotoStrip />
       <Testimonials />
-      <Endorsements />
       <FAQ />
       <PricingInquiry />
       <Footer />
