@@ -66,11 +66,11 @@ export function PillarsSection() {
   }
 
   return (
-    <section id="program" className="py-16 md:py-20 bg-secondary">
+    <section id="program" className="py-16 md:py-20 bg-gray-50">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground mb-4">{t.pillars.title}</h2>
-          <p className="text-base md:text-lg font-[family-name:var(--font-inter)] text-muted-foreground">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4" style={{ color: '#01609C' }}>{t.pillars.title}</h2>
+          <p className="text-base md:text-lg font-[family-name:var(--font-inter)] text-gray-600">
             {t.pillars.subtitle}
           </p>
         </div>
@@ -79,16 +79,16 @@ export function PillarsSection() {
           {/* Desktop arrows */}
           <button
             onClick={() => scroll("left")}
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 z-10 p-3 rounded-full bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 z-10 p-3 rounded-full bg-white border border-gray-200 hover:border-[#01609C]/30 hover:shadow-lg transition-all"
           >
-            <ChevronLeft className="w-6 h-6 text-foreground" />
+            <ChevronLeft className="w-6 h-6" style={{ color: '#01609C' }} />
           </button>
 
           <button
             onClick={() => scroll("right")}
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 z-10 p-3 rounded-full bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 z-10 p-3 rounded-full bg-white border border-gray-200 hover:border-[#01609C]/30 hover:shadow-lg transition-all"
           >
-            <ChevronRight className="w-6 h-6 text-foreground" />
+            <ChevronRight className="w-6 h-6" style={{ color: '#01609C' }} />
           </button>
 
           {/* Carousel container */}
@@ -103,17 +103,17 @@ export function PillarsSection() {
                 <div
                   key={index}
                   data-card
-                  className="flex-shrink-0 w-[88%] md:w-[calc(50%-12px)] snap-start bg-card p-7 md:p-10 rounded-lg border border-border/50 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 first:ml-[6%] md:first:ml-0"
+                  className="flex-shrink-0 w-[88%] md:w-[calc(50%-12px)] snap-start bg-white p-7 md:p-10 rounded-lg border border-gray-200 hover:border-[#01609C]/30 hover:shadow-lg transition-all duration-300 first:ml-[6%] md:first:ml-0"
                 >
                   <div className="mb-4 md:mb-5">
-                    <span className="text-sm md:text-base font-[family-name:var(--font-inter)] text-primary font-medium">
+                    <span className="text-sm md:text-base font-[family-name:var(--font-inter)] font-medium" style={{ color: '#01609C' }}>
                       {t.pillars.layer} {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-medium text-foreground mb-3 md:mb-4 leading-snug">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-medium mb-3 md:mb-4 leading-snug" style={{ color: '#01609C' }}>
                     {pillar.title}
                   </h3>
-                  <p className="text-base md:text-lg lg:text-xl font-[family-name:var(--font-inter)] text-muted-foreground leading-relaxed">
+                  <p className="text-base md:text-lg lg:text-xl font-[family-name:var(--font-inter)] text-gray-700 leading-relaxed">
                     {pillar.description}
                   </p>
                 </div>
@@ -136,7 +136,7 @@ export function PillarsSection() {
                   key={index}
                   onClick={() => scrollToIndex(index)}
                   className={`w-2 h-2 rounded-full transition-colors ${
-                    index === activeIndex ? "bg-primary" : "bg-border"
+                    index === activeIndex ? "bg-[#01609C]" : "bg-gray-300"
                   }`}
                 />
               ))}

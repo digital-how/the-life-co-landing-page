@@ -146,7 +146,7 @@ export function TrustSection() {
                   key={index}
                   onClick={() => scrollToSlide(index)}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    activeSlide === index ? "bg-primary w-4" : "bg-gray-300"
+                    activeSlide === index ? "bg-[#01609C] w-4" : "bg-gray-300"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />

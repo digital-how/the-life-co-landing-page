@@ -217,12 +217,12 @@ export function PricingSection() {
   }
 
   return (
-    <section id="pricing" className="py-16 md:py-20 bg-secondary">
+    <section id="pricing" className="py-16 md:py-20 bg-gray-50">
       <div className="md:container md:mx-auto md:px-6">
         <div className="max-w-6xl mx-auto">
           {/* What's Included - Full Width */}
           <div className="mb-10 md:mb-12 px-4 md:px-0">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-foreground mb-6 md:mb-8 text-center font-serif">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8 text-center font-serif" style={{ color: '#01609C' }}>
               {t.pricing.whatsIncluded}
             </h2>
 
@@ -230,16 +230,16 @@ export function PricingSection() {
               {/* Desktop arrows */}
               <button
                 onClick={() => scrollIncluded("left")}
-                className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 z-10 p-3 rounded-full bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all"
+                className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 z-10 p-3 rounded-full bg-white border border-gray-200 hover:border-[#01609C]/30 hover:shadow-lg transition-all"
               >
-                <ChevronLeft className="w-6 h-6 text-foreground" />
+                <ChevronLeft className="w-6 h-6" style={{ color: '#01609C' }} />
               </button>
 
               <button
                 onClick={() => scrollIncluded("right")}
-                className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 z-10 p-3 rounded-full bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all"
+                className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 z-10 p-3 rounded-full bg-white border border-gray-200 hover:border-[#01609C]/30 hover:shadow-lg transition-all"
               >
-                <ChevronRight className="w-6 h-6 text-foreground" />
+                <ChevronRight className="w-6 h-6" style={{ color: '#01609C' }} />
               </button>
 
               {/* Carousel container */}
@@ -254,17 +254,17 @@ export function PricingSection() {
                     <div
                       key={category.title}
                       data-card
-                      className="flex-shrink-0 w-[85%] md:w-[calc(50%-12px)] snap-start bg-card p-5 md:p-8 rounded-lg border border-border/50 first:ml-[7.5%] md:first:ml-0"
+                      className="flex-shrink-0 w-[85%] md:w-[calc(50%-12px)] snap-start bg-white p-5 md:p-8 rounded-lg border border-gray-200 first:ml-[7.5%] md:first:ml-0"
                     >
-                      <h3 className="text-base md:text-xl font-medium text-foreground mb-3 md:mb-4">
+                      <h3 className="text-base md:text-xl font-medium mb-3 md:mb-4" style={{ color: '#01609C' }}>
                         {category.title}
                       </h3>
-                      <ul className="space-y-2 md:space-y-3 text-xs md:text-base font-[family-name:var(--font-montserrat)] text-muted-foreground">
+                      <ul className="space-y-2 md:space-y-3 text-xs md:text-base font-[family-name:var(--font-montserrat)] text-gray-700">
                         {category.items.map((item, idx) => (
                           <li key={idx}>{item}</li>
                         ))}
                         {category.note && (
-                          <li className="text-xs md:text-sm italic text-muted-foreground/70">{category.note}</li>
+                          <li className="text-xs md:text-sm italic text-gray-500">{category.note}</li>
                         )}
                       </ul>
                     </div>
@@ -276,9 +276,9 @@ export function PricingSection() {
               <div className="flex items-center justify-center gap-4 mt-4">
                 <button
                   onClick={() => scrollIncluded("left")}
-                  className="md:hidden p-2 rounded-full bg-card border border-border/50 transition-opacity"
+                  className="md:hidden p-2 rounded-full bg-white border border-gray-200 transition-opacity"
                 >
-                  <ChevronLeft className="w-5 h-5 text-foreground" />
+                  <ChevronLeft className="w-5 h-5" style={{ color: '#01609C' }} />
                 </button>
 
                 <div className="flex gap-2">
@@ -287,7 +287,7 @@ export function PricingSection() {
                       key={index}
                       onClick={() => scrollToIndex(index)}
                       className={`w-2 h-2 rounded-full transition-colors ${
-                        currentSlide === index ? "bg-accent" : "bg-border"
+                        currentSlide === index ? "bg-[#01609C]" : "bg-gray-300"
                       }`}
                       aria-label={`Go to slide ${index + 1}`}
                     />
@@ -296,9 +296,9 @@ export function PricingSection() {
 
                 <button
                   onClick={() => scrollIncluded("right")}
-                  className="md:hidden p-2 rounded-full bg-card border border-border/50 transition-opacity"
+                  className="md:hidden p-2 rounded-full bg-white border border-gray-200 transition-opacity"
                 >
-                  <ChevronRight className="w-5 h-5 text-foreground" />
+                  <ChevronRight className="w-5 h-5" style={{ color: '#01609C' }} />
                 </button>
               </div>
             </div>
@@ -308,30 +308,30 @@ export function PricingSection() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start px-0 md:px-0">
             {/* Left side - Pricing info */}
             <div className="text-center lg:text-left px-4 md:px-0">
-              <p className="text-base md:text-lg font-[family-name:var(--font-montserrat)] text-muted-foreground mb-3">
+              <p className="text-base md:text-lg font-[family-name:var(--font-montserrat)] text-gray-600 mb-3">
                 {t.pricing.programLabel}
               </p>
               <div className="flex items-baseline gap-2 mb-4 justify-center lg:justify-start">
-                <span className="text-sm font-[family-name:var(--font-montserrat)] text-muted-foreground">
+                <span className="text-sm font-[family-name:var(--font-montserrat)] text-gray-600">
                   {t.pricing.startingFrom}
                 </span>
-                <span className="text-4xl md:text-5xl lg:text-6xl font-light text-foreground font-serif">€2,200</span>
+                <span className="text-4xl md:text-5xl lg:text-6xl font-light font-serif" style={{ color: '#01609C' }}>€2,200</span>
               </div>
-              <p className="text-sm font-[family-name:var(--font-montserrat)] text-muted-foreground mb-6">
+              <p className="text-sm font-[family-name:var(--font-montserrat)] text-gray-600 mb-6">
                 {t.pricing.allInclusive}
               </p>
 
-              <div className="border-t border-border/50 my-6" />
+              <div className="border-t border-gray-300 my-6" />
 
-              <p className="text-sm md:text-base font-[family-name:var(--font-montserrat)] text-muted-foreground leading-relaxed mb-4">
+              <p className="text-sm md:text-base font-[family-name:var(--font-montserrat)] text-gray-700 leading-relaxed mb-4">
                 {t.pricing.includesDescription}
               </p>
 
-              <p className="text-sm md:text-base font-[family-name:var(--font-montserrat)] text-muted-foreground leading-relaxed mb-4">
+              <p className="text-sm md:text-base font-[family-name:var(--font-montserrat)] text-gray-700 leading-relaxed mb-4">
                 {t.pricing.offerDescription}
               </p>
 
-              <p className="text-xs md:text-sm font-[family-name:var(--font-montserrat)] text-muted-foreground/80 italic">
+              <p className="text-xs md:text-sm font-[family-name:var(--font-montserrat)] text-gray-600 italic">
                 {t.pricing.longerPrograms}
               </p>
             </div>
@@ -339,10 +339,11 @@ export function PricingSection() {
             {/* Right side - Inquiry form */}
             <div id="contact-form" className="w-full">
               {isSubmitted ? (
-                <div className="bg-card p-8 md:p-10 rounded-none md:rounded-lg border-y md:border border-border/50 text-center mx-0">
-                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-5 md:mb-6">
+                <div className="bg-white p-8 md:p-10 rounded-none md:rounded-lg border-y md:border border-gray-200 text-center mx-0">
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-5 md:mb-6" style={{ backgroundColor: '#01609C10' }}>
                     <svg
-                      className="w-7 h-7 md:w-8 md:h-8 text-accent"
+                      className="w-7 h-7 md:w-8 md:h-8"
+                      style={{ color: '#01609C' }}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -350,29 +351,29 @@ export function PricingSection() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-light text-foreground mb-4 font-serif">
+                  <h3 className="text-xl md:text-2xl font-light mb-4 font-serif" style={{ color: '#01609C' }}>
                     {t.pricing.thankYou}
                   </h3>
-                  <p className="text-sm md:text-base font-[family-name:var(--font-montserrat)] text-muted-foreground">
+                  <p className="text-sm md:text-base font-[family-name:var(--font-montserrat)] text-gray-700">
                     {t.pricing.thankYouMessage}
                   </p>
                 </div>
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  className="bg-gradient-to-br from-card to-accent/5 p-5 md:p-8 rounded-none md:rounded-lg border-y md:border border-accent/10 shadow-lg shadow-accent/5"
+                  className="bg-white p-5 md:p-8 rounded-none md:rounded-lg border-y md:border border-gray-200 shadow-lg"
                 >
-                  <h3 className="text-lg md:text-2xl font-light text-foreground mb-2 font-serif">
+                  <h3 className="text-lg md:text-2xl font-light mb-2 font-serif" style={{ color: '#01609C' }}>
                     {t.pricing.formTitle}
                   </h3>
-                  <p className="text-[11px] md:text-sm font-[family-name:var(--font-montserrat)] text-muted-foreground mb-4 md:mb-6">
+                  <p className="text-[11px] md:text-sm font-[family-name:var(--font-montserrat)] text-gray-600 mb-4 md:mb-6">
                     {t.pricing.formSubtitle}
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5 mb-3 md:mb-5">
                     <div className="space-y-1.5 md:space-y-2">
                       <Label
                         htmlFor="firstName"
-                        className="text-[11px] md:text-sm font-[family-name:var(--font-montserrat)] text-foreground"
+                        className="text-[11px] md:text-sm font-[family-name:var(--font-montserrat)] text-gray-900"
                       >
                         {t.pricing.firstName}
                       </Label>
@@ -382,13 +383,13 @@ export function PricingSection() {
                         required
                         value={formData.firstName}
                         onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                        className="bg-background border-border/50 focus:border-accent text-xs md:text-sm h-9 md:h-10"
+                        className="bg-white border-gray-300 focus:border-[#01609C] text-xs md:text-sm h-9 md:h-10"
                       />
                     </div>
                     <div className="space-y-1.5 md:space-y-2">
                       <Label
                         htmlFor="lastName"
-                        className="text-[11px] md:text-sm font-[family-name:var(--font-montserrat)] text-foreground"
+                        className="text-[11px] md:text-sm font-[family-name:var(--font-montserrat)] text-gray-900"
                       >
                         {t.pricing.lastName}
                       </Label>
@@ -398,7 +399,7 @@ export function PricingSection() {
                         required
                         value={formData.lastName}
                         onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                        className="bg-background border-border/50 focus:border-accent text-xs md:text-sm h-9 md:h-10"
+                        className="bg-white border-gray-300 focus:border-[#01609C] text-xs md:text-sm h-9 md:h-10"
                       />
                     </div>
                   </div>
@@ -437,7 +438,7 @@ export function PricingSection() {
                           {countryCodes.map((country) => (
                             <SelectItem key={country.country} value={country.code} className="text-xs md:text-sm">
                               <span className="flex items-center gap-1">
-                                <span className="text-muted-foreground">{country.country}</span>
+                                <span className="text-gray-600">{country.country}</span>
                                 <span>{country.code}</span>
                               </span>
                             </SelectItem>
@@ -474,11 +475,11 @@ export function PricingSection() {
                     type="submit"
                     size="lg"
                     disabled={isSubmitting}
-                    className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-[family-name:var(--font-montserrat)] text-xs md:text-base h-10 md:h-11 shadow-lg shadow-accent/20"
+                    className="w-full bg-[#01609C] hover:bg-[#014a7a] text-white font-[family-name:var(--font-montserrat)] text-xs md:text-base h-10 md:h-11"
                   >
                     {isSubmitting ? t.pricing.submitting : t.pricing.submit}
                   </Button>
-                  <p className="text-[10px] md:text-xs font-[family-name:var(--font-montserrat)] text-muted-foreground text-center mt-3 md:mt-4">
+                  <p className="text-[10px] md:text-xs font-[family-name:var(--font-montserrat)] text-gray-600 text-center mt-3 md:mt-4">
                     {t.pricing.callUs} {t.pricing.phoneNumber}
                   </p>
                 </form>

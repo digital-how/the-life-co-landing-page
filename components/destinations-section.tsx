@@ -48,26 +48,26 @@ export function DestinationsSection() {
   const { locale, t } = useLanguage()
 
   return (
-    <section id="destinations" className="py-16 md:py-20 bg-background">
+    <section id="destinations" className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
             {/* Left side - Text content */}
             <div className="flex flex-col justify-center text-center lg:text-left">
-              <p className="text-sm font-[family-name:var(--font-inter)] uppercase tracking-widest text-muted-foreground mb-4">
+              <p className="text-sm font-[family-name:var(--font-inter)] uppercase tracking-widest text-gray-500 mb-4">
                 {locale === "tr" ? "5 FARKLI LOKASYON" : "5 DESTINATIONS"}
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground mb-6 leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6 leading-tight" style={{ color: '#01609C' }}>
                 {t.destinations.title}
               </h2>
-              <p className="text-base font-[family-name:var(--font-inter)] text-muted-foreground leading-relaxed mb-8">
+              <p className="text-base font-[family-name:var(--font-inter)] text-gray-600 leading-relaxed mb-8">
                 {t.destinations.description}
               </p>
               <div className="flex justify-center lg:justify-start">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-[family-name:var(--font-inter)] text-base px-8"
+                  className="bg-[#01609C] hover:bg-[#014a7a] text-white font-[family-name:var(--font-inter)] text-base px-8"
                 >
                   <Link href="#pricing">{t.header.talkToExpert}</Link>
                 </Button>

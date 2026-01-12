@@ -8,19 +8,19 @@ export function FinalCtaSection() {
   const { t } = useLanguage()
 
   return (
-    <section id="contact" className="py-16 md:py-20 pb-32 bg-primary/5">
+    <section id="contact" className="py-16 md:py-20 pb-32 bg-gray-50">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground mb-5 font-serif">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-5 font-serif" style={{ color: '#01609C' }}>
             {t.finalCta.title}
           </h2>
-          <p className="text-base md:text-lg font-[family-name:var(--font-montserrat)] text-muted-foreground mb-8">
+          <p className="text-base md:text-lg font-[family-name:var(--font-montserrat)] text-gray-600 mb-8">
             {t.finalCta.description}
           </p>
           <Button
             asChild
             size="lg"
-            className="bg-accent hover:bg-accent/90 text-accent-foreground font-[family-name:var(--font-montserrat)] text-base px-10 shadow-lg shadow-accent/20"
+            className="bg-[#01609C] hover:bg-[#014a7a] text-white font-[family-name:var(--font-montserrat)] text-lg px-10 py-6"
           >
             <Link href="#pricing">{t.header.talkToExpert}</Link>
           </Button>

@@ -23,19 +23,19 @@ export function HeroSection() {
           }}
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background/80 md:from-background/40 md:via-background/60 md:to-background/80" />
+      <div className="absolute inset-0 bg-black/40" />
 
       <div className="relative z-10 container mx-auto px-4 md:px-6 py-12 md:py-32 text-center">
         <div className="md:bg-transparent bg-background/50 backdrop-blur-sm md:backdrop-blur-none rounded-2xl p-6 md:p-0">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight text-foreground mb-6 md:mb-8 text-balance leading-[1.1] font-serif">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-white mb-6 md:mb-8 text-balance leading-[1.1]">
             {t.hero.title1}
             <br />
-            <span className="italic bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent pr-1">
+            <span className="block mt-2 text-5xl md:text-6xl lg:text-7xl italic" style={{ fontFamily: 'Cormorant Garamond', fontWeight: 300, letterSpacing: '0.02em' }}>
               {t.hero.title2}
             </span>
           </h1>
 
-          <p className="text-base md:text-lg lg:text-xl font-[family-name:var(--font-montserrat)] text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed px-2">
+          <p className="text-lg md:text-xl font-[family-name:var(--font-montserrat)] text-white opacity-95 max-w-3xl mx-auto mb-4 leading-relaxed px-2">
             {t.hero.subtitle}
           </p>
 
@@ -43,7 +43,7 @@ export function HeroSection() {
             <Button
               asChild
               size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-[family-name:var(--font-montserrat)] text-sm md:text-base px-8 md:px-10 py-5 md:py-6 shadow-lg shadow-accent/20"
+              className="bg-[#01609C] hover:bg-[#014a7a] text-white font-[family-name:var(--font-montserrat)] text-lg px-10 py-6"
             >
               <Link href="#contact-form">{t.header.talkToExpert}</Link>
             </Button>
