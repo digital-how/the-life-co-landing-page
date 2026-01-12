@@ -38,6 +38,10 @@ export function TheLifeCoHeader() {
   const ctaBgColor = "#008080" // Updated to TheLifeCo teal-blue
   const ctaHoverBgColor = "#006666" // Updated to a darker teal-blue for hover effect
 
+  // Update text color based on scroll state
+  const menuTextColor = isScrolled ? "#1a5f5f" : "white"
+  const menuHoverColor = isScrolled ? "#008080" : "rgba(255, 255, 255, 0.8)"
+
   return (
     <>
       {/* Main header */}
@@ -63,16 +67,16 @@ export function TheLifeCoHeader() {
             <a
               href={links.centers}
               className="text-sm font-medium transition-colors"
-              style={{ color: textColor }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = hoverColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.color = textColor)}
+              style={{ color: menuTextColor }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = menuHoverColor)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = menuTextColor)}
             >
               {locale === "en" ? "Centers" : "Merkezler"}
             </a>
             <div className="relative group">
               <button
                 className="flex items-center gap-1 text-sm font-medium transition-colors"
-                style={{ color: textColor }}
+                style={{ color: menuTextColor }}
               >
                 {locale === "en" ? "Programs" : "Programlar"}
                 <ChevronDown className="w-4 h-4" />
@@ -82,27 +86,27 @@ export function TheLifeCoHeader() {
                   <a
                     href={links.detoxPrograms}
                     className="block px-4 py-2 text-sm hover:bg-gray-50"
-                    style={{ color: textColor }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = hoverColor)}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = textColor)}
+                    style={{ color: menuTextColor }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = menuHoverColor)}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = menuTextColor)}
                   >
                     {locale === "en" ? "Detox Programs" : "Detoks Programları"}
                   </a>
                   <a
                     href={links.weightLoss}
                     className="block px-4 py-2 text-sm hover:bg-gray-50"
-                    style={{ color: textColor }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = hoverColor)}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = textColor)}
+                    style={{ color: menuTextColor }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = menuHoverColor)}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = menuTextColor)}
                   >
                     {locale === "en" ? "Weight Loss" : "Zayıflama"}
                   </a>
                   <a
                     href={links.diabetesRecovery}
                     className="block px-4 py-2 text-sm hover:bg-gray-50"
-                    style={{ color: textColor }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = hoverColor)}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = textColor)}
+                    style={{ color: menuTextColor }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = menuHoverColor)}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = menuTextColor)}
                   >
                     {locale === "en" ? "Diabetes Recovery" : "Diyabet Programı"}
                   </a>
@@ -112,27 +116,27 @@ export function TheLifeCoHeader() {
             <a
               href={links.therapies}
               className="text-sm font-medium transition-colors"
-              style={{ color: textColor }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = hoverColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.color = textColor)}
+              style={{ color: menuTextColor }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = menuHoverColor)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = menuTextColor)}
             >
               {locale === "en" ? "Therapies" : "Terapiler"}
             </a>
             <a
               href={links.aboutUs}
               className="text-sm font-medium transition-colors"
-              style={{ color: textColor }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = hoverColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.color = textColor)}
+              style={{ color: menuTextColor }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = menuHoverColor)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = menuTextColor)}
             >
               {locale === "en" ? "About Us" : "Hakkımızda"}
             </a>
             <a
               href={links.blog}
               className="text-sm font-medium transition-colors"
-              style={{ color: textColor }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = hoverColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.color = textColor)}
+              style={{ color: menuTextColor }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = menuHoverColor)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = menuTextColor)}
             >
               Blog
             </a>
@@ -144,9 +148,9 @@ export function TheLifeCoHeader() {
             <Link
               href={locale === "en" ? "/tr" : "/en"}
               className="hidden md:flex items-center gap-1 text-sm font-medium transition-colors"
-              style={{ color: textColor }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = hoverColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.color = textColor)}
+              style={{ color: menuTextColor }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = menuHoverColor)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = menuTextColor)}
             >
               {locale === "en" ? "TR" : "EN"}
             </Link>
@@ -171,9 +175,9 @@ export function TheLifeCoHeader() {
               aria-label="Toggle menu"
             >
               {isMainMenuOpen ? (
-                <X className="w-6 h-6" style={{ color: textColor }} />
+                <X className="w-6 h-6" style={{ color: menuTextColor }} />
               ) : (
-                <Menu className="w-6 h-6" style={{ color: textColor }} />
+                <Menu className="w-6 h-6" style={{ color: menuTextColor }} />
               )}
             </button>
           </div>
