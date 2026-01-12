@@ -11,6 +11,7 @@ const destinations = [
     nameTr: "Bodrum, Türkiye",
     image: "/Bodrum_general_photo.jpg",
     link: "https://www.thelifeco.com/en/centers/the-lifeco-bodrum-wellness-retreat/",
+    linkTr: "https://www.thelifeco.com/tr/merkezler/the-lifeco-bodrum/",
     featured: true,
   },
   {
@@ -18,24 +19,28 @@ const destinations = [
     nameTr: "Antalya, Türkiye",
     image: "/TheLifeCo-Antalya_Drone_Photo_2_2020_edit-1024x852.jpg",
     link: "https://www.thelifeco.com/en/centers/the-lifeco-antalya-wellbeing-center/",
+    linkTr: "https://www.thelifeco.com/tr/merkezler/the-lifeco-antalya/",
   },
   {
     name: "St Lucia",
     nameTr: "St Lucia",
     image: "/Theilfeco-st-lucia-1024x509.png",
     link: "https://www.thelifeco.com/en/centers/thelifeco-st-lucia/",
+    linkTr: "https://www.thelifeco.com/tr/merkezler/the-lifeco-st-lucia/",
   },
   {
     name: "Sharm El Sheikh, Egypt",
     nameTr: "Şarm El Şeyh, Mısır",
     image: "/sharm.png",
     link: "https://www.thelifeco.com/en/thelifeco-sharm-el-sheikh/",
+    linkTr: "https://www.thelifeco.com/tr/merkezler/thelifeco-sharm-el-sheikh/",
   },
   {
     name: "Phuket, Thailand",
     nameTr: "Phuket, Tayland",
     image: "/phuket.jpg",
     link: "https://www.thelifeco.com/en/centers/the-lifeco-phuket/",
+    linkTr: "https://www.thelifeco.com/tr/merkezler/the-lifeco-phuket/",
   },
 ]
 
@@ -74,7 +79,7 @@ export function DestinationsSection() {
               {/* Top section: Bodrum + Antalya stack */}
               <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-3 md:gap-4 lg:h-[500px]">
                 {/* Bodrum - full width on mobile with taller aspect */}
-                <Link href={destinations[0].link} target="_blank" rel="noopener noreferrer" className="relative aspect-[4/3] md:aspect-[3/4] lg:aspect-auto rounded-xl md:rounded-2xl overflow-hidden group lg:h-full cursor-pointer">
+                <Link href={locale === "tr" ? destinations[0].linkTr : destinations[0].link} target="_blank" rel="noopener noreferrer" className="relative aspect-[4/3] md:aspect-[3/4] lg:aspect-auto rounded-xl md:rounded-2xl overflow-hidden group lg:h-full cursor-pointer">
                   <Image
                     src={destinations[0].image || "/placeholder.svg"}
                     alt={locale === "tr" ? destinations[0].nameTr : destinations[0].name}
@@ -87,7 +92,7 @@ export function DestinationsSection() {
                   </h3>
                 </Link>
                 {/* Antalya */}
-                <Link href={destinations[1].link} target="_blank" rel="noopener noreferrer" className="relative aspect-[4/3] lg:aspect-auto rounded-xl md:rounded-2xl overflow-hidden group lg:h-full cursor-pointer">
+                <Link href={locale === "tr" ? destinations[1].linkTr : destinations[1].link} target="_blank" rel="noopener noreferrer" className="relative aspect-[4/3] lg:aspect-auto rounded-xl md:rounded-2xl overflow-hidden group lg:h-full cursor-pointer">
                   <Image
                     src={destinations[1].image || "/placeholder.svg"}
                     alt={locale === "tr" ? destinations[1].nameTr : destinations[1].name}
@@ -103,7 +108,7 @@ export function DestinationsSection() {
 
               {/* Bottom row: 3 equal cards - St Lucia, Sharm El Sheikh, Phuket */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-                <Link href={destinations[2].link} target="_blank" rel="noopener noreferrer" className="relative aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden group cursor-pointer">
+                <Link href={locale === "tr" ? destinations[2].linkTr : destinations[2].link} target="_blank" rel="noopener noreferrer" className="relative aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden group cursor-pointer">
                   <Image
                     src={destinations[2].image || "/placeholder.svg"}
                     alt={locale === "tr" ? destinations[2].nameTr : destinations[2].name}
@@ -115,7 +120,7 @@ export function DestinationsSection() {
                     {locale === "tr" ? destinations[2].nameTr : destinations[2].name}
                   </h3>
                 </Link>
-                <Link href={destinations[3].link} target="_blank" rel="noopener noreferrer" className="relative aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden group cursor-pointer">
+                <Link href={locale === "tr" ? destinations[3].linkTr : destinations[3].link} target="_blank" rel="noopener noreferrer" className="relative aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden group cursor-pointer">
                   <Image
                     src={destinations[3].image || "/placeholder.svg"}
                     alt={locale === "tr" ? destinations[3].nameTr : destinations[3].name}
@@ -127,7 +132,7 @@ export function DestinationsSection() {
                     {locale === "tr" ? destinations[3].nameTr : destinations[3].name}
                   </h3>
                 </Link>
-                <Link href={destinations[4].link} target="_blank" rel="noopener noreferrer" className="relative aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden group col-span-2 md:col-span-1 cursor-pointer">
+                <Link href={locale === "tr" ? destinations[4].linkTr : destinations[4].link} target="_blank" rel="noopener noreferrer" className="relative aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden group col-span-2 md:col-span-1 cursor-pointer">
                   <Image
                     src={destinations[4].image || "/placeholder.svg"}
                     alt={locale === "tr" ? destinations[4].nameTr : destinations[4].name}
