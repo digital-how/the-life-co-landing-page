@@ -1,6 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 
 export function WhyItMattersAR() {
   return (
@@ -104,8 +105,8 @@ export function WhyItMattersAR() {
               placeholder="أدخل بريدك الإلكتروني" 
               className="flex-1 bg-white border-gray-300"
             />
-            <Button className="bg-white hover:bg-gray-100 text-[#01609C] px-8 font-medium">
-              ابدأ
+            <Button asChild className="bg-white hover:bg-gray-100 text-[#01609C] px-8 font-medium">
+              <Link href="#contact-form">ابدأ</Link>
             </Button>
           </div>
           <p className="text-xs text-white/80 mt-4">

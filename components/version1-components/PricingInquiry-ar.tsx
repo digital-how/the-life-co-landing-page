@@ -38,7 +38,7 @@ export function PricingInquiryAR() {
   };
 
   return (
-    <section className="py-8 md:py-16 bg-gradient-to-b from-white to-gray-50" dir="rtl">
+    <section id="contact-form" className="py-8 md:py-16 bg-gradient-to-b from-white to-gray-50" dir="rtl">
       <div className="max-w-7xl mx-auto px-6">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
           <div className="grid md:grid-cols-2 gap-0">
