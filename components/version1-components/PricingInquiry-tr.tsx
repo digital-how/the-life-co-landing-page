@@ -206,6 +206,7 @@ export function PricingInquiryTR() {
                   Veya bizi doğrudan arayın: <a href="tel:+443308186024" className="text-[#01609C] hover:underline">+44 330 818 6024</a>
                 </p>
               </form>
+              )}
             </div>
           </div>
         </div>
