@@ -5,6 +5,7 @@ import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import { LanguageProvider } from "@/lib/language-context"
 import { MenuProvider } from "@/lib/menu-context"
+import { AnalyticsDebug } from "@/components/AnalyticsDebug"
 import "./globals.css"
 
 const cormorant = Cormorant_Garamond({
@@ -70,19 +71,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-3DKEBB7FJD"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-3DKEBB7FJD');
-          `}
-        </Script>
+        {/* Google Analytics 4 & Google Ads */}
+        {process.env.NEXT_PUBLIC_GA4_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}');
+                ${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ? `gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}');` : ''}
+              `}
+            </Script>
+          </>
+        )}
         {/* HubSpot Embed Code */}
         <Script
           id="hs-script-loader"
@@ -95,6 +101,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <MenuProvider>{children}</MenuProvider>
         </LanguageProvider>
         <Analytics />
+        <AnalyticsDebug />
       </body>
     </html>
   )

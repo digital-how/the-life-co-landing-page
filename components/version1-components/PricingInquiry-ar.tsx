@@ -21,12 +21,25 @@ export function PricingInquiryAR() {
     setIsSubmitting(false)
     setIsSubmitted(true)
     
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'submit_lead_form', {
-        event_category: 'engagement',
-        event_label: 'inquiry_form',
-        value: 1
+    // Track conversion in Google Analytics 4 and Google Ads
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      // GA4 generate_lead event
+      window.gtag('event', 'generate_lead', {
+        method: 'weightloss_form'
       })
+
+      // Google Ads conversion tracking (if configured)
+      const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID
+      const adsLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL
+      if (adsId && adsLabel) {
+        const transactionId = `weightloss_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`
+        window.gtag('event', 'conversion', {
+          send_to: `${adsId}/${adsLabel}`,
+          value: 1.0,
+          currency: 'EUR',
+          transaction_id: transactionId
+        })
+      }
     }
   }
 
