@@ -14,44 +14,21 @@ export function PricingInquiryAR() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    await new Promise((resolve) => setTimeout(resolve, 1500))
+    setIsSubmitting(false)
+    setIsSubmitted(true)
     
-    console.log('Form submitted!', formData);
-    setIsSubmitting(true);
-    
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'submit_lead_form', {
-          event_category: 'engagement',
-          event_label: 'inquiry_form',
-          value: 1
-        })
-      }
-      
-      setIsSubmitted(true);
-      setIsSubmitting(false);
-      
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        countryCode: 'AE +971',
-        phone: '',
-        goals: ''
-      });
-      
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    } catch (error) {
-      console.error('Form submission error:', error);
-      setIsSubmitting(false);
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'submit_lead_form', {
+        event_category: 'engagement',
+        event_label: 'inquiry_form',
+        value: 1
+      })
     }
-  };
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -125,7 +102,7 @@ export function PricingInquiryAR() {
                   </p>
                 </div>
               ) : (
-              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+              <form onSubmit={handleSubmit} className="space-y-4">
                 {/* First Name & Last Name Row */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
@@ -226,12 +203,6 @@ export function PricingInquiryAR() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  onClick={(e) => {
-                    console.log('Button clicked!');
-                    if (isSubmitting) {
-                      e.preventDefault();
-                    }
-                  }}
                   className="w-full py-4 bg-[#C17F4E] hover:bg-[#A86D3F] disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg transition-colors duration-300 text-lg font-medium"
                 >
                   {isSubmitting ? 'جاري الإرسال...' : 'إرسال الاستفسار'}
