@@ -219,9 +219,16 @@ export function PricingInquiryTR() {
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#C17F4E] hover:bg-[#A86D3F] text-white rounded-lg transition-colors duration-300 text-lg font-medium"
+                  disabled={isSubmitting}
+                  onClick={(e) => {
+                    console.log('Button clicked!');
+                    if (isSubmitting) {
+                      e.preventDefault();
+                    }
+                  }}
+                  className="w-full py-4 bg-[#C17F4E] hover:bg-[#A86D3F] disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg transition-colors duration-300 text-lg font-medium"
                 >
-                  Talep Gönder
+                  {isSubmitting ? 'Gönderiliyor...' : 'Talep Gönder'}
                 </button>
 
                 <p className="text-center text-sm text-gray-600 mt-4">
