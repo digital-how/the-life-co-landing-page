@@ -226,6 +226,12 @@ export function PricingInquiryAR() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
+                  onClick={(e) => {
+                    console.log('Button clicked!');
+                    if (isSubmitting) {
+                      e.preventDefault();
+                    }
+                  }}
                   className="w-full py-4 bg-[#C17F4E] hover:bg-[#A86D3F] disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg transition-colors duration-300 text-lg font-medium"
                 >
                   {isSubmitting ? 'جاري الإرسال...' : 'إرسال الاستفسار'}
