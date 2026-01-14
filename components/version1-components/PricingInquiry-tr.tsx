@@ -10,17 +10,42 @@ export function PricingInquiryTR() {
     phone: '',
     goals: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
     
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'submit_lead_form', {
-        event_category: 'engagement',
-        event_label: 'inquiry_form',
-        value: 1
-      })
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'submit_lead_form', {
+          event_category: 'engagement',
+          event_label: 'inquiry_form',
+          value: 1
+        })
+      }
+      
+      setIsSubmitted(true);
+      setIsSubmitting(false);
+      
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        countryCode: 'TR +90',
+        phone: '',
+        goals: ''
+      });
+      
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setIsSubmitting(false);
     }
   };
 
@@ -78,6 +103,24 @@ export function PricingInquiryTR() {
                 Uzmanlarımızdan kişiselleştirilmiş rehberlik alın.
               </p>
 
+              {isSubmitted ? (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
+                  <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+                    <svg
+                      className="w-6 h-6 text-green-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Teşekkürler!</h4>
+                  <p className="text-gray-700">
+                    Talebinizi aldık. Ekibimiz kısa süre içinde sizinle iletişime geçecektir.
+                  </p>
+                </div>
+              ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div>

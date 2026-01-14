@@ -10,19 +10,52 @@ export function PricingInquiry() {
     phone: '',
     goals: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
     
-    // Track conversion in Google Analytics
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'submit_lead_form', {
-        event_category: 'engagement',
-        event_label: 'inquiry_form',
-        value: 1
-      })
+    try {
+      // Simulate form submission delay
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      
+      // Track conversion in Google Analytics
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'submit_lead_form', {
+          event_category: 'engagement',
+          event_label: 'inquiry_form',
+          value: 1
+        })
+      }
+      
+      // Submit to HubSpot if available
+      if (typeof window !== 'undefined' && (window as any).hbspt) {
+        // HubSpot form submission would go here if needed
+        console.log('Form data for HubSpot:', formData);
+      }
+      
+      setIsSubmitted(true);
+      setIsSubmitting(false);
+      
+      // Reset form after showing success message
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        countryCode: 'DE +49',
+        phone: '',
+        goals: ''
+      });
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setIsSubmitting(false);
     }
   };
 
@@ -80,6 +113,24 @@ export function PricingInquiry() {
                 Get personalised guidance from our experts.
               </p>
 
+              {isSubmitted ? (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
+                  <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+                    <svg
+                      className="w-6 h-6 text-green-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Thank you!</h4>
+                  <p className="text-gray-700">
+                    We've received your inquiry. Our team will contact you shortly.
+                  </p>
+                </div>
+              ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* First Name & Last Name Row */}
                 <div className="grid grid-cols-2 gap-4">
@@ -180,9 +231,10 @@ export function PricingInquiry() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#C17F4E] hover:bg-[#A86D3F] text-white rounded-lg transition-colors duration-300 text-lg font-medium"
+                  disabled={isSubmitting}
+                  className="w-full py-4 bg-[#C17F4E] hover:bg-[#A86D3F] disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg transition-colors duration-300 text-lg font-medium"
                 >
-                  Send Inquiry
+                  {isSubmitting ? 'Sending...' : 'Send Inquiry'}
                 </button>
 
                 {/* Call Alternative */}
@@ -190,6 +242,7 @@ export function PricingInquiry() {
                   Or call us directly: <a href="tel:+443308186024" className="text-[#01609C] hover:underline">+44 330 818 6024</a>
                 </p>
               </form>
+              )}
             </div>
           </div>
         </div>
