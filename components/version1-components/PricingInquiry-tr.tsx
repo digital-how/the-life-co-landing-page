@@ -13,15 +13,18 @@ export function PricingInquiryTR() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    e.stopPropagation();
+    
+    console.log('Form submitted!', formData);
     setIsSubmitting(true);
     
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
       
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'submit_lead_form', {
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'submit_lead_form', {
           event_category: 'engagement',
           event_label: 'inquiry_form',
           value: 1
@@ -121,7 +124,7 @@ export function PricingInquiryTR() {
                   </p>
                 </div>
               ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="firstName" className="block text-sm text-gray-700 mb-2">

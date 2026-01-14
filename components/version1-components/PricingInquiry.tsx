@@ -13,8 +13,11 @@ export function PricingInquiry() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    e.stopPropagation();
+    
+    console.log('Form submitted!', formData);
     setIsSubmitting(true);
     
     try {
@@ -22,8 +25,8 @@ export function PricingInquiry() {
       await new Promise((resolve) => setTimeout(resolve, 1500));
       
       // Track conversion in Google Analytics
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'submit_lead_form', {
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'submit_lead_form', {
           event_category: 'engagement',
           event_label: 'inquiry_form',
           value: 1
@@ -131,7 +134,7 @@ export function PricingInquiry() {
                   </p>
                 </div>
               ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                 {/* First Name & Last Name Row */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
