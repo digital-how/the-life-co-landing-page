@@ -28,9 +28,11 @@ export function PricingInquiryTR() {
       })
 
       // Google Ads conversion tracking (if configured)
-      const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID
+      const rawAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID
+      const adsId = rawAdsId?.startsWith('AW-') ? rawAdsId : (rawAdsId ? `AW-${rawAdsId}` : undefined)
       const adsLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL
       if (adsId && adsLabel) {
+        console.log('Ads tracking:', { adsId, adsLabel })
         const transactionId = `weightloss_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`
         window.gtag('event', 'conversion', {
           send_to: `${adsId}/${adsLabel}`,
