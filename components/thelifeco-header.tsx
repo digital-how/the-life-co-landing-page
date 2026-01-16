@@ -157,13 +157,13 @@ export function TheLifeCoHeader() {
 
             {/* CTA Button - Updated to warm orange */}
             <a
-              href="https://book.thelifeco.com/"
+              href="#contact-form"
               className="hidden md:inline-flex px-5 py-2.5 text-white text-sm font-medium rounded-full transition-colors"
               style={{ backgroundColor: ctaBgColor }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = ctaHoverBgColor)}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = ctaBgColor)}
             >
-              {locale === "en" ? "Plan My Program" : "Programımı Planlayalım"}
+              {locale === "en" ? "Talk to an Expert" : "Bir Uzmanla Görüşün"}
             </a>
 
             {/* Mobile menu button */}
@@ -275,11 +275,11 @@ export function TheLifeCoHeader() {
 
               <div className="mt-4 px-4">
                 <a
-                  href="https://book.thelifeco.com/"
+                  href="#contact-form"
                   className="block w-full px-5 py-3 text-white text-sm font-medium rounded-full transition-colors text-center"
                   style={{ backgroundColor: ctaBgColor }}
                 >
-                  {locale === "en" ? "Plan My Program" : "Programımı Planlayalım"}
+                  {locale === "en" ? "Talk to an Expert" : "Bir Uzmanla Görüşün"}
                 </a>
               </div>
 
