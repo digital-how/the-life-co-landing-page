@@ -163,7 +163,7 @@ export function TheLifeCoHeader() {
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = ctaHoverBgColor)}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = ctaBgColor)}
             >
-              {locale === "en" ? "Talk to an Expert" : "Bir Uzmanla Görüşün"}
+              {locale === "en" ? "Talk to an Expert" : "Uzmanlarımızla Görüşün"}
             </a>
 
             {/* Mobile menu button */}
@@ -279,7 +279,7 @@ export function TheLifeCoHeader() {
                   className="block w-full px-5 py-3 text-white text-sm font-medium rounded-full transition-colors text-center"
                   style={{ backgroundColor: ctaBgColor }}
                 >
-                  {locale === "en" ? "Talk to an Expert" : "Bir Uzmanla Görüşün"}
+                  {locale === "en" ? "Talk to an Expert" : "Uzmanlarımızla Görüşün"}
                 </a>
               </div>
 

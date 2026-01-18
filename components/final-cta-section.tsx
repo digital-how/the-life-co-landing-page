@@ -22,7 +22,7 @@ export function FinalCtaSection() {
             size="lg"
             className="bg-[#01609C] hover:bg-[#014a7a] text-white font-[family-name:var(--font-montserrat)] text-lg px-10 py-6"
           >
-            <Link href="#pricing">{t.header.talkToExpert}</Link>
+            <Link href="#contact-form">{t.header.talkToExpert}</Link>
           </Button>
         </div>
       </div>

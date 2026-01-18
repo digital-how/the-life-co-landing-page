@@ -107,7 +107,7 @@ export function WhyItMattersTR() {
               className="flex-1 bg-white border-gray-300"
             />
             <Button asChild className="bg-white hover:bg-gray-100 text-[#01609C] px-8 font-medium">
-              <Link href="#contact-form">Başlayın</Link>
+              <Link href="#contact-form">Uzmanlarımızla Görüşün</Link>
             </Button>
           </div>
           <p className="text-xs text-white/80 mt-4">
