@@ -360,6 +360,7 @@ export function PricingSection() {
                 </div>
               ) : (
                 <form
+                  name="Weightloss Landing Page v1"
                   onSubmit={handleSubmit}
                   className="bg-white p-5 md:p-8 rounded-none md:rounded-lg border-y md:border border-gray-200 shadow-lg"
                 >
